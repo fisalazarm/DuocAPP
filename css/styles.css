@@ -1,0 +1,49 @@
+#barra{
+    background-color: #00162b;
+}
+    /* HIDE RADIO */
+    [type=radio] { 
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        }
+    
+        /* IMAGE STYLES */
+        [type=radio] + img {
+        cursor: pointer;
+        }
+    
+        /* CHECKED STYLES */
+        [type=radio]:checked + img {
+        outline: 2px solid #00162b;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        #LogoDuoc{
+            max-width: 50%;
+        }
+
+        #Enviar{
+            box-align: center;
+            background-color: #00162b;
+            color: white;
+            border-color: #ffb414;
+            border-radius: 4cm;
+            border-width: 3px;
+        }
+        #navbar{
+            width:60%;
+            margin-left: 760px;   
+        }
+        input:invalid {
+            border-color: red;
+        }
+        input,
+        input:valid {
+            border-color: #ccc;
+        }
