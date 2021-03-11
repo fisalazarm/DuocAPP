@@ -4,6 +4,7 @@
 <?php include('head.php'); ?>
 <?php include('nav-bar.php'); ?>
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
     
         $con = mysqli_connect("localhost","root","");
         if (!$con) {
