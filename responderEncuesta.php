@@ -3,13 +3,32 @@
 <?php $currentPage = 'responderEncuesta'; ?>
 <?php include('head.php'); ?>
 <?php include('nav-bar.php'); ?>
+<?php
+    
+        $con = mysqli_connect("localhost","root","");
+        if (!$con) {
+            die('Could not connect: ' . mysqli_error());
+        }
+       else{
+            mysqli_select_db($con, "duocapp");
+            $pregunta1 =$_POST['pregunta1'];
+            $pregunta2 =$_POST['pregunta2'];
+            $pregunta3 =$_POST['pregunta3'];
+            $encuesta = $_POST['codigo_encuesta'];
+            $ins_query= "SELECT pregunta1, pregunta2, pregunta3 FROM encuesta WHERE codigo_encuesta = ?";
+            $ins_stmt = $con->prepare($ins_query) or die($con->error);
+            $ins_stmt->bind_param("s", $nombre_tipo_pregunta);
+            $ins_stmt->execute() or die($ins_stmt->error);
+
+        }
+?>
 <body>
     <div class="container-md d-flex justify-content-center"" style="background-color:white" text-center py-5>
         <form method="post">
             <h3>Conteste las siguientes preguntas respecto a la clase del dia de hoy:</h3>
             <br>
             <div class="form-group">
-                <label for="inputPregunta1">¿Como calificaría el contenido del dia de hoy, Responda con la imágen que crea que es la mas correcta?</label>
+                <label for="inputPregunta1" name="pregunta1"></label>
                 <br>
                 <div>
                     <br>
@@ -35,7 +54,7 @@
                     </label>
                 </div>
                 <br>
-                <label for="inputPregunta2">¿Como Calificaría la explicación del profesor ante la clase, Responda con la imágen que crea que es la mas correcta?</label>
+                <label for="inputPregunta2" name="pregunta2"></label>
                 <br>
                 <div>
                     <br>
@@ -62,7 +81,7 @@
 
                 </div>
                 <br>
-                <label for="inputPregunta3">¿Como calificaría la respuesta del profesor ante preguntas, Responda con la imágen que crea que es la mas correcta?</label>
+                <label for="inputPregunta3" name="pregunta3"></label>
                 <br>
                 <div>
                     <br>
