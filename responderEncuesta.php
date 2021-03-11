@@ -12,14 +12,7 @@ error_reporting(E_ALL ^ E_NOTICE);
         }
        else{
             mysqli_select_db($con, "duocapp");
-            $pregunta1 =$_POST['pregunta1'];
-            $pregunta2 =$_POST['pregunta2'];
-            $pregunta3 =$_POST['pregunta3'];
             $encuesta = $_POST['codigo_encuesta'];
-            $ins_query= "SELECT pregunta1, pregunta2, pregunta3 FROM encuesta WHERE codigo_encuesta = ?";
-            $ins_stmt = $con->prepare($ins_query) or die($con->error);
-            $ins_stmt->bind_param("s", $nombre_tipo_pregunta);
-            $ins_stmt->execute() or die($ins_stmt->error);
 
         }
 ?>
@@ -43,7 +36,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                 <label for="inputPregunta1" name="pregunta1">
                 <?php
                     $con = mysqli_connect("localhost","root","","duocapp");
-                    $sql = "SELECT * FROM  encuesta";
+                    $sql = "SELECT pregunta1,pregunta2,pregunta3 FROM  encuesta where codigo_encuesta = '$encuesta'";
 
                     $result = mysqli_query($con,$sql);        
 
@@ -116,7 +109,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                 </div>
                 <br>
                 <label for="inputPregunta3" name="pregunta3">
-                <tr>
+                    <tr>
                       <td> <?php echo $mostrar['pregunta3']?></td>
                     </tr>  
                    <?php }?>
