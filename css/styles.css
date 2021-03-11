@@ -47,3 +47,9 @@
         input:valid {
             border-color: #ccc;
         }
+        #divCodigo {
+            border-color: 00162b;
+            border-width: 3px;
+            border-style: solid;
+            padding: 10px;
+        }
