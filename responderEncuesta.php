@@ -4,17 +4,11 @@
 <?php include('head.php'); ?>
 <?php include('nav-bar.php'); ?>
 <?php
-error_reporting(E_ALL ^ E_NOTICE);
-    
-        $con = mysqli_connect("localhost","root","","duocapp");
-        if (!$con) {
-            die('Could not connect: ' . mysqli_error());
-        }
-       else{
-            mysqli_select_db($con, "duocapp");
-            $encuesta = $_POST['codigo_encuesta'];
-
-        }
+    error_reporting(E_ALL ^ E_NOTICE);
+    $encuesta = $_POST['codigo_encuesta'];
+    $respuesta1 =$_POST['Aceptacion'];
+    $respuesta2 =$_POST['Aceptacion2'];
+    $respuesta3 =$_POST['Aceptacion3'];
 ?>
 <body>
     <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
@@ -25,7 +19,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                 <input type="text" name="codigo_encuesta" id="">
                 <br>
                 <br>
-                <button type="submit" id="Enviar">Enviar</button>
+                <button type="submit" id="Enviar" name="cargarEncuesta">Enviar</button>
             </form>
         </div>
     <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
@@ -140,7 +134,22 @@ error_reporting(E_ALL ^ E_NOTICE);
                 </div>
                 <br>
             </div>
-            <button id="Enviar" type="submit" class="btn btn-lg ">Submit</button>
+        <button id="Enviar" type="submit" class="btn btn-lg" name="Guardar">Enviar Respuesta</button>
+        <?php
+                if(@$_POST['submit'] || !isset($respuest1) || !isset($respuesta2) || !isset($respuesta3) || !isset($encuesta)){
+                    $con = mysqli_connect("localhost","root","");
+                    if (!$con) {
+                        die('Could not connect: ' . mysqli_error());
+                    }
+                   else{
+                        mysqli_select_db($con, "duocapp");
+                        $ins_query="INSERT INTO respuesta_encuesta(id_encuestafk,respuesta1,respuesta2,respuesta3) values (?,?,?,?)";
+                        $ins_stmt = $con->prepare($ins_query) or die($con->error);
+                        $ins_stmt->bind_param("iiii", $encuesta, $respuesta1, $respuesta2, $respuesta3);
+                        $ins_stmt->execute() or die($ins_stmt->error);
+                    }
+                }
+            ?>
         </form>
     </div>
 
