@@ -6,7 +6,7 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
     
-        $con = mysqli_connect("localhost","root","");
+        $con = mysqli_connect("localhost","root","","duocapp");
         if (!$con) {
             die('Could not connect: ' . mysqli_error());
         }
@@ -29,13 +29,30 @@ error_reporting(E_ALL ^ E_NOTICE);
             <h3>Conteste las siguientes preguntas respecto a la clase del dia de hoy:</h3>
             <br>
             <div class="form-group">
-                <label for="inputPregunta1" name="pregunta1"></label>
+                <label for="inputPregunta1" name="pregunta1">
+                <?php
+                    $con = mysqli_connect("localhost","root","","duocapp");
+                    $sql = "SELECT * FROM  encuesta";
+
+                    $result = mysqli_query($con,$sql);        
+
+                    while($mostrar = mysqli_fetch_array($result)){
+                    
+                    ?>
+
+                    <tr>
+                      <td> <?php echo $mostrar['pregunta1']?></td>
+                    </tr>  
+                   
+                
+                </label>
                 <br>
                 <div>
-                    <br>
-                    <label>
+                    <br>                    
+                
+                    <label>        
                         <input type="radio" name="Aceptacion" value="1">  
-                        <img class="img-fluid" src="images/Muy en desacuerdo.png" alt="ImagenMuyEnDesacuerdo">   
+                        <img class="img-fluid" src="images/Muy en desacuerdo.png" alt="ImagenMuyEnDesacuerdo">      
                     </label>
                     <label>
                         <input type="radio" name="Aceptacion" value="2">  
@@ -55,7 +72,12 @@ error_reporting(E_ALL ^ E_NOTICE);
                     </label>
                 </div>
                 <br>
-                <label for="inputPregunta2" name="pregunta2"></label>
+                <label for="inputPregunta2" name="pregunta2">
+            
+                    <tr>
+                      <td> <?php echo $mostrar['pregunta2']?></td>
+                    </tr>  
+                </label>
                 <br>
                 <div>
                     <br>
@@ -82,7 +104,12 @@ error_reporting(E_ALL ^ E_NOTICE);
 
                 </div>
                 <br>
-                <label for="inputPregunta3" name="pregunta3"></label>
+                <label for="inputPregunta3" name="pregunta3">
+                <tr>
+                      <td> <?php echo $mostrar['pregunta3']?></td>
+                    </tr>  
+                   <?php }?>
+                </label>
                 <br>
                 <div>
                     <br>
