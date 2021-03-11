@@ -16,7 +16,8 @@
                 <br>
                 <label for="inputCodigo">Escriba el codigo de la encuesta</label>
                 <br>
-                <input type="text" name="codigo_encuesta" id="">
+                <input type="text" name="codigo_encuesta" id="solo-numero" minlength="5" maxlength="6"required="" pattern="[0-9]+">
+                
                 <br>
                 <br>
                 <button type="submit" id="Enviar" name="cargarEncuesta">Enviar</button>
