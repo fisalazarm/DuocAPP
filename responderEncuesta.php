@@ -23,7 +23,7 @@
         }
 ?>
 <body>
-    <div class="container-md d-flex justify-content-center"" style="background-color:white" text-center py-5>
+    <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
         <form method="post">
             <h3>Conteste las siguientes preguntas respecto a la clase del dia de hoy:</h3>
             <br>
