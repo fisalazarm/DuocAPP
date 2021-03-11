@@ -25,6 +25,17 @@ error_reporting(E_ALL ^ E_NOTICE);
 ?>
 <body>
     <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
+            <form action="" method="post" id="divCodigo">
+                <br>
+                <label for="inputCodigo">Escriba el codigo de la encuesta</label>
+                <br>
+                <input type="text" name="codigo_encuesta" id="">
+                <br>
+                <br>
+                <button type="submit" id="Enviar">Enviar</button>
+            </form>
+        </div>
+    <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
         <form method="post">
             <h3>Conteste las siguientes preguntas respecto a la clase del dia de hoy:</h3>
             <br>
