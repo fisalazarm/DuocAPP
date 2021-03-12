@@ -30,7 +30,7 @@
                 <label for="inputPregunta1" name="pregunta1">
                 <?php
                     $con = mysqli_connect("localhost","root","","duocapp");
-                    $sql = "SELECT pregunta1,pregunta2,pregunta3 FROM  encuesta where codigo_encuesta = '$encuesta'";
+                    $sql = "SELECT codigo_encuesta, pregunta1,pregunta2,pregunta3 FROM  encuesta where codigo_encuesta = '$encuesta'";
 
                     $result = mysqli_query($con,$sql);        
 
@@ -39,7 +39,7 @@
                     ?>
 
                     <tr>
-                      <td> <?php echo $mostrar['pregunta1']?></td>
+                    <td> <?php echo $mostrar['pregunta1']?></td>
                     </tr>  
                    
                 
@@ -105,8 +105,7 @@
                 <label for="inputPregunta3" name="pregunta3">
                     <tr>
                       <td> <?php echo $mostrar['pregunta3']?></td>
-                    </tr>  
-                   <?php }?>
+                    </tr>                     
                 </label>
                 <br>
                 <div>
@@ -132,11 +131,17 @@
                         <img class="img-fluid" src="images/Muy de acuerdo.png" alt="">
                     </label>
                 </div>
+                
+                <div name="coden" hidden> 
+                <input type="text" name="coden" value=" <?php echo $mostrar['codigo_encuesta']?>">
+               
+                    </div>
+                <?php }?>
                 <br>
             </div>
         <button id="Enviar" type="submit" class="btn btn-lg" name="Guardar">Enviar Respuesta</button>
         <?php
-                if(@$_POST['submit'] || !isset($respuest1) || !isset($respuesta2) || !isset($respuesta3) || !isset($encuesta)){
+           /*     if(@$_POST['Guardar'] || !isset($respuest1) || !isset($respuesta2) || !isset($respuesta3) || !isset($encuesta)){
                     $con = mysqli_connect("localhost","root","");
                     if (!$con) {
                         die('Could not connect: ' . mysqli_error());
@@ -148,7 +153,18 @@
                         $ins_stmt->bind_param("iiii", $encuesta, $respuesta1, $respuesta2, $respuesta3);
                         $ins_stmt->execute() or die($ins_stmt->error);
                     }
+                }*/
+                $codigen=$_POST["coden"];
+                
+                    $insert ="INSERT INTO  respuesta_encuesta (id_encuestafk,respuesta1,respuesta2,respuesta3) VALUES ($codigen,'$respuesta1','$respuesta2','$respuesta3')";
+                if(mysqli_query($con, $insert)){
+                    echo "   ";
+                }else{
+                    echo "";
+                    mysqli_error($con);
                 }
+                mysqli_close($con);
+
             ?>
         </form>
     </div>
