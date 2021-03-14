@@ -23,11 +23,6 @@
             max-width: 100%;
             height: auto;
         }
-
-        #LogoDuoc{
-            max-width: 50%;
-        }
-
         #Enviar{
             box-align: center;
             background-color: #00162b;
@@ -52,4 +47,7 @@
             border-width: 3px;
             border-style: solid;
             padding: 10px;
+        }
+        .bs-example{
+            margin: 20px;
         }

@@ -10,13 +10,14 @@
     $respuesta2 =$_POST['Aceptacion2'];
     $respuesta3 =$_POST['Aceptacion3'];
 ?>
+
 <body>
     <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
             <form action="" method="post" id="divCodigo">
                 <br>
                 <label for="inputCodigo">Escriba el codigo de la encuesta</label>
                 <br>
-                <input type="text" name="codigo_encuesta" id="">
+                <input type="text" name="codigo_encuesta" id="" required>
                 <br>
                 <br>
                 <button type="submit" id="Enviar" name="cargarEncuesta">Enviar</button>
@@ -49,23 +50,23 @@
                     <br>                    
                 
                     <label>        
-                        <input type="radio" name="Aceptacion" value="1">  
+                        <input type="radio" name="Aceptacion" value="1" id="Aceptacion" required>  
                         <img class="img-fluid" src="images/Muy en desacuerdo.png" alt="ImagenMuyEnDesacuerdo">      
                     </label>
                     <label>
-                        <input type="radio" name="Aceptacion" value="2">  
+                        <input type="radio" name="Aceptacion" value="2" id="Aceptacion" required>  
                         <img class="img-fluid" src="images/En desacuerdo.png" alt="ImagenEnDesacuerdo"> 
                     </label>
                     <label>
-                        <input type="radio" name="Aceptacion" value="3">  
+                        <input type="radio" name="Aceptacion" value="3" id="Aceptacion" required>  
                         <img class="img-fluid" src="images/Neutro.png" alt=""> 
                     </label>
                     <label>
-                        <input type="radio" name="Aceptacion" value="4">  
+                        <input type="radio" name="Aceptacion" value="4"  id="Aceptacion" required>  
                         <img class="img-fluid" src="images/De acuerdo.png" alt="">
                     </label>
                     <label>
-                        <input type="radio" name="Aceptacion" value="5">  
+                        <input type="radio" name="Aceptacion" value="5"  id="Aceptacion" required>  
                         <img class="img-fluid" src="images/Muy de acuerdo.png" alt="">
                     </label>
                 </div>
@@ -80,23 +81,23 @@
                 <div>
                     <br>
                     <label>
-                        <input type="radio" name="Aceptacion2" value="1">  
+                        <input type="radio" name="Aceptacion2" value="1" id="Aceptacion" required>  
                         <img class="img-fluid" src="images/Muy en desacuerdo.png" alt="ImagenMuyEnDesacuerdo">   
                     </label>
                     <label>
-                        <input type="radio" name="Aceptacion2" value="2">  
+                        <input type="radio" name="Aceptacion2" value="2" id="Aceptacion" required>  
                         <img class="img-fluid" src="images/En desacuerdo.png" alt="ImagenEnDesacuerdo"> 
                     </label>
                     <label>
-                        <input type="radio" name="Aceptacion2" value="3">  
+                        <input type="radio" name="Aceptacion2" value="3" id="Aceptacion" required>  
                         <img class="img-fluid" src="images/Neutro.png" alt=""> 
                     </label>
                     <label>
-                        <input type="radio" name="Aceptacion2" value="4">  
+                        <input type="radio" name="Aceptacion2" value="4" id="Aceptacion" required>  
                         <img class="img-fluid" src="images/De acuerdo.png" alt="">
                     </label>
                     <label>
-                        <input type="radio" name="Aceptacion2" value="5">  
+                        <input type="radio" name="Aceptacion2" value="5" id="Aceptacion" required>  
                         <img class="img-fluid" src="images/Muy de acuerdo.png" alt="">
                     </label>
 
@@ -111,23 +112,23 @@
                 <div>
                     <br>
                     <label>
-                        <input type="radio" name="Aceptacion3" value="1">  
+                        <input type="radio" name="Aceptacion3" value="1" id="Aceptacion" required>  
                         <img class="img-fluid" src="images/Muy en desacuerdo.png" alt="ImagenMuyEnDesacuerdo">   
                     </label>
                     <label>
-                        <input type="radio" name="Aceptacion3" value="2">  
+                        <input type="radio" name="Aceptacion3" value="2" id="Aceptacion" required>  
                         <img class="img-fluid" src="images/En desacuerdo.png" alt="ImagenEnDesacuerdo"> 
                     </label>
                     <label>
-                        <input type="radio" name="Aceptacion3" value="3">  
+                        <input type="radio" name="Aceptacion3" value="3" id="Aceptacion" required>  
                         <img class="img-fluid" src="images/Neutro.png" alt=""> 
                     </label>
                     <label>
-                        <input type="radio" name="Aceptacion3" value="4">  
+                        <input type="radio" name="Aceptacion3" value="4" id="Aceptacion" required>  
                         <img class="img-fluid" src="images/De acuerdo.png" alt="">
                     </label>
                     <label>
-                        <input type="radio" name="Aceptacion3" value="5">  
+                        <input type="radio" name="Aceptacion3" value="5" id="Aceptacion" required>  
                         <img class="img-fluid" src="images/Muy de acuerdo.png" alt="">
                     </label>
                 </div>

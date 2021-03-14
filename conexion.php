@@ -3,7 +3,7 @@
 $server="localhost";
 $user="root";
 $pass="";    
-$db="encuesta";
+$db="duocapp";
 
 $conexion = mysqli_connect($server,$user,$pass,$db);
 
