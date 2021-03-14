@@ -3,6 +3,7 @@
 <?php $currentPage = 'responderEncuesta'; ?>
 <?php include('head.php'); ?>
 <?php include('nav-bar.php'); ?>
+<?php include('conexion.php'); ?>
 <?php
     error_reporting(E_ALL ^ E_NOTICE);
     $encuesta = $_POST['codigo_encuesta'];
@@ -32,7 +33,6 @@
             <div class="form-group">
                 <label for="inputPregunta1" name="pregunta1">
                 <?php
-                    $con = mysqli_connect("localhost","root","","duocapp");
                     $sql = "SELECT codigo_encuesta, pregunta1,pregunta2,pregunta3 FROM  encuesta where codigo_encuesta = '$encuesta'";
 
                     $result = mysqli_query($con,$sql);        
@@ -146,19 +146,6 @@
             <button id="Enviar" type="submit" class="btn btn-lg" name="Guardar">Enviar Respuesta</button>
         </div>
         <?php
-           /*     if(@$_POST['Guardar'] || !isset($respuest1) || !isset($respuesta2) || !isset($respuesta3) || !isset($encuesta)){
-                    $con = mysqli_connect("localhost","root","");
-                    if (!$con) {
-                        die('Could not connect: ' . mysqli_error());
-                    }
-                   else{
-                        mysqli_select_db($con, "duocapp");
-                        $ins_query="INSERT INTO respuesta_encuesta(id_encuestafk,respuesta1,respuesta2,respuesta3) values (?,?,?,?)";
-                        $ins_stmt = $con->prepare($ins_query) or die($con->error);
-                        $ins_stmt->bind_param("iiii", $encuesta, $respuesta1, $respuesta2, $respuesta3);
-                        $ins_stmt->execute() or die($ins_stmt->error);
-                    }
-                }*/
                 $codigen=$_POST["coden"];
                 
                     $insert ="INSERT INTO  respuesta_encuesta (id_encuestafk,respuesta1,respuesta2,respuesta3) VALUES ($codigen,'$respuesta1','$respuesta2','$respuesta3')";
