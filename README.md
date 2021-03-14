@@ -11,9 +11,18 @@ Necesitas cualquier dispositivo con conexión a internet, puede ser desde un Com
 Se necesita un navegador, algunos de estos son: Google Chrome, Opera, Firefox, etc.
 ```
 
+## Entorno Requerido 📌
+
+_Aqui se detalla el entorno requerido para ejecutar la aplicacion:_
+
+```
+El sistema se puede ejecutar en sistemas operativos Android, IOS, Windows, Linux y Mac.
+
+```
+
 ### Instalación 🔧
 
-Primero necesitas tener un navegador de Internet abierto:
+Primero necesitas tener un navegador de Internet:
 
 ```
 - Si se abre la app por el navegador de un computador:
