@@ -20,7 +20,9 @@
                 <input type="text" name="codigo_encuesta" id="" required>
                 <br>
                 <br>
-                <button type="submit" id="Enviar" name="cargarEncuesta">Enviar</button>
+                <div class="text-center">
+                    <button type="submit" id="Enviar" name="cargarEncuesta">Enviar</button>
+                </div>
             </form>
         </div>
     <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
@@ -140,7 +142,9 @@
                 <?php }?>
                 <br>
             </div>
-        <button id="Enviar" type="submit" class="btn btn-lg" name="Guardar">Enviar Respuesta</button>
+        <div class="text-center">
+            <button id="Enviar" type="submit" class="btn btn-lg" name="Guardar">Enviar Respuesta</button>
+        </div>
         <?php
            /*     if(@$_POST['Guardar'] || !isset($respuest1) || !isset($respuesta2) || !isset($respuesta3) || !isset($encuesta)){
                     $con = mysqli_connect("localhost","root","");
