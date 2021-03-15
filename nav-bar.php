@@ -3,7 +3,7 @@
 <html>
     <header>
             <nav class="navbar navbar-expand-md navbar-dark shadow-sm" id="barra">
-                <a href="index.php" id="LogoDuoc"><img class=".img-fluid. max-width: 100%; height: 28;" src="images/logo amarillo-blanco.png" alt="LogoDuocAmarilloBlanco"></a>   
+                <a class="navbar-brand" href="index.php" id="LogoDuoc"><img style="max-width:50%;height:auto;" class=".img-fluid. max-width: 50%; height: auto;" id="logoDuocImg" src="images/logo amarillo-blanco.png" alt="LogoDuocAmarilloBlanco"></a>   
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
