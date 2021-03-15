@@ -14,7 +14,7 @@
                         <a href="responderEncuesta.php" class="nav-item nav-link active">Encuesta</a>
                     </div>
                     <div class="navbar-nav ml-auto">
-                        <a href="#" class="nav-item nav-link active">Acceder</a>
+                        <a href="InicioSesion.php" class="nav-item nav-link active">Acceder</a>
                     </div>
                 </div>
             </nav>
