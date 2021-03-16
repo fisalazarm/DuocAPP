@@ -9,10 +9,17 @@
 
     <form action="logueo.php" method="post">
         <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
-            <input type="text" name="usuario" placeholder="Ingrese su usuario">     
-            <input type="password" name="pass" placeholder="Ingrese su contraseña">
-            <button type="submit" id="Enviar"> Ingresar </button></a>
+            <div class="">
+                <input type="text" name="usuario" placeholder="Ingrese su usuario">    
+            </div> 
+            <div>
+                <input type="password" name="pass" placeholder="Ingrese su contraseña">
+            </div>
+                <button type="submit" id="Enviar"> Ingresar </button></a>
+                <a href="recuperacion/contrasenaOlvidada.php">¿Olvidaste tu Contraseña?</a>
+            
         </div> 
+        
     </form> 
     
 <?php/*
