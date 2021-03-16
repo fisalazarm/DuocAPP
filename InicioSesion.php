@@ -23,7 +23,6 @@
                     <button type="submit" id="Enviar"> Ingresar </button>
                 </div>
                 <br>
-                <br>
                 <div class="text-center">
                     <a href="recuperacion/contrasenaOlvidada.php">¿Olvidaste tu Contraseña?</a>
                 </div>
