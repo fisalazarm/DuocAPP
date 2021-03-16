@@ -39,11 +39,11 @@ error_reporting(E_ALL ^ E_NOTICE);
                         <td>
                             <td>Tipo Pregunta:</td>
                             <select name="nombre_tipo_pregunta" required>
-                                <option selected hidden value="">Seleccione el Tipo</option>
+                                <option selected hidden value="" required>Seleccione el Tipo</option>
                                 <?php
                                     $result = $con->query("select * FROM tipo_pregunta");
                                     while ($row = $result->fetch_assoc())
-                                    { echo "<option value='".$row['id_tipo_pregunta']."'>".$row['nombre_tipo_pregunta']."</option>";}
+                                    { echo "<option required value='".$row['id_tipo_pregunta']."'>".$row['nombre_tipo_pregunta']." </option>";}
                                 ?>
                             </select>
                         </td>
