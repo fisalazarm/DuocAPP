@@ -19,8 +19,11 @@
                 <input type="password" name="pass" placeholder="Ingrese su contraseña">
                 <br>
                 <br>
-                <button type="submit" id="Enviar"> Ingresar </button></a>
+                <div class="text-center">
+                    <button type="submit" id="Enviar"> Ingresar </button>
+                </div>
                 <br>
+                <br>    
                 <a href="recuperacion/contrasenaOlvidada.php">¿Olvidaste tu Contraseña?</a>
                 <br>
             </form>
