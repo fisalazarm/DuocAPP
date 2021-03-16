@@ -7,9 +7,8 @@
 
 <body>
 
-    <form action="logueo.php" method="post">
         <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
-            <form method="post">
+            <form method="post" id="divLogin">
                 <br>
                 <label for="inputUsuario">Ingrese su usuario</label>
                 <br>
@@ -19,15 +18,14 @@
                 <br>
                 <input type="password" name="pass" placeholder="Ingrese su contraseña">
                 <br>
+                <br>
                 <button type="submit" id="Enviar"> Ingresar </button></a>
                 <br>
                 <a href="recuperacion/contrasenaOlvidada.php">¿Olvidaste tu Contraseña?</a>
                 <br>
             </form>
 
-        </div> 
-        
-    </form> 
+        </div>
     
 <?php
 /*
