@@ -1,6 +1,6 @@
 <html>
 <?php $title = 'Login'; ?>
-<?php $currentPage = 'InicioSesion'; ?>
+<?php $currentPage = 'inicioSesion'; ?>
 <?php include('head.php'); ?>
 <?php include('nav-bar.php'); ?>
 <?php include('conexion.php'); ?>
