@@ -10,11 +10,11 @@
         <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
             <form method="post" id="divLogin">
                 <br>
-                <label for="inputUsuario">Ingrese su usuario</label>
+                <label for="inputUsuario">Ingrese su usuario:</label>
                 <br>
                 <input type="text" name="usuario" placeholder="Ingrese su usuario" required>    
                 <br>
-                <label for="inputpassword">Ingrese su contraseña</label>
+                <label for="inputpassword">Ingrese su contraseña:</label>
                 <br>
                 <input type="password" name="pass" placeholder="Ingrese su contraseña">
                 <br>
@@ -23,8 +23,10 @@
                     <button type="submit" id="Enviar"> Ingresar </button>
                 </div>
                 <br>
-                <br>    
-                <a href="recuperacion/contrasenaOlvidada.php">¿Olvidaste tu Contraseña?</a>
+                <br>
+                <div class="text-center">
+                    <a href="recuperacion/contrasenaOlvidada.php">¿Olvidaste tu Contraseña?</a>
+                </div>
                 <br>
             </form>
 
