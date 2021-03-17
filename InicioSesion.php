@@ -8,7 +8,7 @@
 <body>
 
         <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
-            <form method="post" id="divLogin">
+            <form action="logueo.php" method="post" id="divLogin">
                 <br>
                 <label for="inputUsuario">Ingrese su usuario:</label>
                 <br>
