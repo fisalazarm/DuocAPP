@@ -3,9 +3,11 @@
 <?php $currentPage = 'creacionPreguntas'; ?>
 <?php include('head.php'); ?>
 <?php include('nav-bar.php'); ?>
+<?php include('conexion.php'); ?>
+
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
-
+/*
     if(!isset($pregunta) || !isset($tipoPregunta)){
         $con = mysqli_connect("localhost","root","");
         if (!$con) {
@@ -24,7 +26,38 @@ error_reporting(E_ALL ^ E_NOTICE);
             $ins_stmt->execute() or die($ins_stmt->error);
 
         }   
-    }   
+    }   */
+
+    if(isset($_POST["pregunta_predeterminada"])){
+        $pregAgre = $_POST["pregunta_predeterminada"];
+        $clase = $_POST["codigo"];
+
+        $insertar ="INSERT INTO preguntas_predeterminadas (nombre_pregunta,id_tipo_preguntafk) 
+        VALUES ('$pregAgre',1)";
+        
+        $con->query($insertar);
+      /*  if($con->query($insertar) === true){
+            echo '<div><form action=""><input type="checkbox">'.$pregAgre.'</form></div>';
+        }else{
+            die("Error al insertar datos: " . $con->error);
+        }*/
+   
+
+    
+    }
+  
+  
+
+
+
+    /*$insertar ="INSERT INTO preguntas_predeterminadas ('nombre_pregunta','id_tipo_preguntafk'
+    VALUES ($pregAgre,1)";
+*/
+
+    
+
+
+    
 ?>
     <body>
         <div class="container-md justify-content-center" style="background-color:white" text-center py-5>
@@ -43,7 +76,10 @@ error_reporting(E_ALL ^ E_NOTICE);
                                 <?php
                                     $result = $con->query("select * FROM tipo_pregunta");
                                     while ($row = $result->fetch_assoc())
-                                    { echo "<option required value='".$row['id_tipo_pregunta']."'>".$row['nombre_tipo_pregunta']." </option>";}
+                                    { 
+                                        echo "<option required value='".$row['id_tipo_pregunta']."'>".$row['nombre_tipo_pregunta']." </option>";
+                                    }
+                                    
                                 ?>
                             </select>
                         </td>
