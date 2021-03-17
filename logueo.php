@@ -24,11 +24,11 @@ if($array['contar']>0){
 
 if($array['contar']>0 && $array['tipo_usuario']==1){
     $_SESSION['username'] = $usuario;
-    header("location:Reportes.php");
+    header("location:administrador.php");
 } 
 else if($array['contar']>0 && $array['tipo_usuario']==2){
     $_SESSION['username'] = $usuario;
-    header("location:crearcuestionario.php");
+    header("location:docente.php");
 }
 else{
 
