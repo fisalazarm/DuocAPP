@@ -4,6 +4,7 @@ require "conexion.php";
 $email = "";
 $usuario = "";
 $errors = array();
+$tipoU = $_POST['tipo_usuario'];
 
 //if user signup button
 if(isset($_POST['signup'])){
@@ -14,7 +15,7 @@ if(isset($_POST['signup'])){
     if($password !== $cpassword){
         $errors['password'] = "Confirm password not matched!";
     }
-    $username_check = "SELECT * FROM usertable WHERE user = '$usuario'";
+    $username_check = "SELECT * FROM usertable WHERE username = '$usuario'";
     $res = mysqli_query($con, $username_check);
     if(mysqli_num_rows($res) > 0){
         $errors['username'] = "¡El usuario que ingresaste ya existe!";
@@ -23,8 +24,9 @@ if(isset($_POST['signup'])){
         $encpass = password_hash($password, PASSWORD_BCRYPT);
         $code = rand(999999, 111111);
         $status = "notverified";
-        $insert_data = "INSERT INTO usertable (user, email, password, code, status)
-                        values('$usuario', '$email', '$encpass', '$code', '$status')";
+        $tipoU = $_POST['tipo_usuario'];
+        $insert_data = "INSERT INTO usertable (username, email, password, code, status,tipo_usuario)
+                        values('$usuario', '$email', '$encpass', '$code', '$status','$tipoU')";
         $data_check = mysqli_query($con, $insert_data);
         if($data_check){
             $subject = "Codigo de verificación de Email";
@@ -41,7 +43,7 @@ if(isset($_POST['signup'])){
                 $errors['otp-error'] = "Fallo el envío del código!";
             }
         }else{
-            $errors['db-error'] = "No se pudo ingresar la información en la Base de Datos!";
+            $errors['db-error'] = "No se pudo registrar usuario en la Base de Datos!";
         }
     }
 
@@ -73,7 +75,7 @@ if(isset($_POST['signup'])){
         }
     }
 
-    //if user click login button
+    // controlador de boton logín o inicio de sesiónF
     if(isset($_POST['login'])){
         $usuario = mysqli_real_escape_string($con, $_POST['username']);
         $password = mysqli_real_escape_string($con, $_POST['password']);

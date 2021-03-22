@@ -74,11 +74,8 @@ error_reporting(E_ALL ^ E_NOTICE);
                                     $result = $con->query("select * FROM tipo_pregunta");
                                     while ($row = $result->fetch_assoc())
                                     { 
-                                        echo "<option required value='".$row['id_tipo_pregunta']."'>".$row['nombre_tipo_pregunta']." </option>";
-           
-                                       
-                                    }
-                                    
+                                        echo "<option required value='".$row['id_tipo_pregunta']."'>".$row['nombre_tipo_pregunta']." </option>";           
+                                    }                                    
                                 ?>
                             </select>
                         </td>

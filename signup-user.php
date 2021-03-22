@@ -1,7 +1,7 @@
 <?php require_once "controllerUserData.php"; ?>
 <!DOCTYPE html>
 <html>
-<?php $title = 'Registro'; ?>
+<?php $title = 'Registro de Usuarios'; ?>
 <?php $currentPage = 'signup-user'; ?>
 <?php include('head.php'); ?>
 <?php include('nav-bar.php'); ?>
@@ -50,6 +50,18 @@
                     <div class="form-group">
                         <input class="form-control" type="password" name="cpassword" placeholder="Confirmar Contraseña" required>
                     </div>
+                    <div class="form-group">
+                    <select name="tipo_usuario" required>
+                                <option name="id_tipo_usuario" selected hidden value="" required>Seleccione el usuario</option>
+                                <?php
+                                    $result = $con->query("select * FROM tipo_usuario");
+                                    while ($row = $result->fetch_assoc())
+                                    { 
+                                        echo "<option required value='".$row['id_tipo_usuario']."'>".$row['descripcion_usuario']." </option>";           
+                                    }                                    
+                                ?>
+                            </select>
+                    </div>                    
                     <div class="form-group">
                         <input class="form-control button" type="submit" name="signup" value="Signup">
                     </div>
