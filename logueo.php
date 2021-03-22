@@ -7,8 +7,8 @@ session_start();
 
 $usuario = $_POST["usuario"];
 $clave = $_POST["pass"];
-
-$q = "SELECT count(*) as contar, tipo_usuario FROM usuario where nombre_Usuario = '$usuario' and contrasenna = '$clave'";
+$q = "SELECT count(*) as contar, status, tipo_usuario FROM usertable where username = '$usuario' and password = '$clave'";
+//$q = "SELECT count(*) as contar, status, tipo_usuario FROM usuario where nombre_Usuario = '$usuario' and contrasenna = '$clave' ";
 $consulta = mysqli_query($con,$q);
 $array= mysqli_fetch_array($consulta);
 
@@ -22,18 +22,20 @@ if($array['contar']>0){
 }
 */
 
-if($array['contar']>0 && $array['tipo_usuario']==1){
+if($array['contar']>0 && $array['tipo_usuario']==1&& $array['status']=="Activo"){
     $_SESSION['username'] = $usuario;
     header("location:administrador.php");
 } 
-else if($array['contar']>0 && $array['tipo_usuario']==2){
+else if($array['contar']>0 && $array['tipo_usuario']==2&& $array['status']=="Activo"){
     $_SESSION['username'] = $usuario;
     header("location:docente.php");
 }
-else{
+else if($array['contar']>0 && $array['tipo_usuario']==2&&$array['status']=="notverified"){
+    header("location:forgot-password.php");
+}{
 
     //echo "<script> Alert('Datos Incorrectos'); header(location:InicioSesion.php) </script>";
-     echo  "Datos incorrectos";
+     echo  " Datos incorrectos";
 }
 
 ?>

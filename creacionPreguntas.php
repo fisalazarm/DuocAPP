@@ -30,10 +30,10 @@ error_reporting(E_ALL ^ E_NOTICE);
 
     if(isset($_POST["pregunta_predeterminada"])){
         $pregAgre = $_POST["pregunta_predeterminada"];
-        $clase = $_POST["codigo"];
+        $clase = $_POST['nombre_tipo_pregunta'];
 
         $insertar ="INSERT INTO preguntas_predeterminadas (nombre_pregunta,id_tipo_preguntafk) 
-        VALUES ('$pregAgre',1)";
+        VALUES ('$pregAgre','$clase')";
         
         $con->query($insertar);
       /*  if($con->query($insertar) === true){
@@ -41,9 +41,6 @@ error_reporting(E_ALL ^ E_NOTICE);
         }else{
             die("Error al insertar datos: " . $con->error);
         }*/
-   
-
-    
     }
   
   
@@ -72,12 +69,14 @@ error_reporting(E_ALL ^ E_NOTICE);
                         <td>
                             <td>Tipo Pregunta:</td>
                             <select name="nombre_tipo_pregunta" required>
-                                <option selected hidden value="" required>Seleccione el Tipo</option>
+                                <option name="idPregunta" selected hidden value="" required>Seleccione el Tipo</option>
                                 <?php
                                     $result = $con->query("select * FROM tipo_pregunta");
                                     while ($row = $result->fetch_assoc())
                                     { 
                                         echo "<option required value='".$row['id_tipo_pregunta']."'>".$row['nombre_tipo_pregunta']." </option>";
+           
+                                       
                                     }
                                     
                                 ?>

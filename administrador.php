@@ -1,0 +1,23 @@
+<html>
+<?php $title = 'Administrador'; ?>
+<?php $currentPage = 'Administracion'; ?>
+<?php include('head.php'); ?>
+<?php include('nav-bar.php'); ?>
+<link rel="stylesheet" href="css/menu.css" type="text/css"  />
+
+<body>
+
+<nav><ul>
+        <li><a href="creacionPreguntas.php">Ingresar Preguntas</a></li>
+        <li><a href="Reportes.php ">Reportes</a></li>
+        <li><a href="signup-user.php">Registrar Usuario</a></li>
+    </ul></nav>
+
+<?php
+    session_start();
+    $usuario = $_SESSION['username'];
+    echo  "<h1>Bienvenido $usuario al sistema de Administración</h1>";
+
+?>
+   
+</html> 
