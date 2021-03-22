@@ -22,11 +22,11 @@ if($array['contar']>0){
 }
 */
 
-if($array['contar']>0 && $array['tipo_usuario']==1&& $array['status']=="Activo"){
+if($array['contar']>0 && $array['tipo_usuario']==1&& $array['status']=="verified"){
     $_SESSION['username'] = $usuario;
     header("location:administrador.php");
 } 
-else if($array['contar']>0 && $array['tipo_usuario']==2&& $array['status']=="Activo"){
+else if($array['contar']>0 && $array['tipo_usuario']==2&& $array['status']=="verified"){
     $_SESSION['username'] = $usuario;
     header("location:docente.php");
 }
