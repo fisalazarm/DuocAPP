@@ -5,34 +5,37 @@
 <?php include('nav-bar.php'); ?>
 <?php include('conexion.php'); ?>
 
-<body>
 
- 
+<body> 
 <div class="container">
        <div class="row">
            <div class="col-lg-12">
             <table id="tablaUsuarios" class="table-striped table-bordered" style="width:100%">
                 <thead class="text-center">
-                    <th>User_id</th>
-                    <th>User name</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Gender</th>
-                    <th>Password</th>
-                    <th>Status</th>
+                    <th>id</th>
+                    <th>Usuario </th>
+                    <th>Correo</th>
+                    <th>Contraseña</th>
+                    <th>codigo</th>
+                    <th>Estado</th>
+                    <th>Tipo Usuario</th>
                 </thead>
                 <tbody>
                     <?php
-                        foreach($usuarios as $usuario){
+                        $sql ="SELECT * FROM usertable";
+                        $result = mysqli_query($con,$sql);
+                        while($usuario=mysqli_fetch_array($result))
+                        {
+                        
                     ?>
                     <tr>
-                        <td><?php echo $usuario['user_id']?></td>
+                        <td><?php echo $usuario['id']?></td>
                         <td><?php echo $usuario['username']?></td>
-                        <td><?php echo $usuario['first_name']?></td>
-                        <td><?php echo $usuario['last_name']?></td>
-                        <td><?php echo $usuario['gender']?></td>
+                        <td><?php echo $usuario['email']?></td>
                         <td><?php echo $usuario['password']?></td>
+                        <td><?php echo $usuario['code']?></td>
                         <td><?php echo $usuario['status']?></td>
+                        <td><?php echo $usuario['tipo_usuario']?></td>
                     </tr>
                     <?php
                         }
