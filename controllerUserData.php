@@ -4,7 +4,7 @@ require "conexion.php";
 $email = "";
 $usuario = "";
 $errors = array();
-$tipoU = $_POST['tipo_usuario'];
+error_reporting(0);
 
 //if user signup button
 if(isset($_POST['signup'])){
@@ -21,7 +21,8 @@ if(isset($_POST['signup'])){
         $errors['username'] = "¡El usuario que ingresaste ya existe!";
     }
     if(count($errors) === 0){
-        $encpass = password_hash($password, PASSWORD_BCRYPT);
+        //$encpass = password_hash($password, PASSWORD_BCRYPT);
+        $encpass=$_POST['cpassword'];
         $code = rand(999999, 111111);
         $status = "notverified";
         $tipoU = $_POST['tipo_usuario'];
@@ -37,13 +38,17 @@ if(isset($_POST['signup'])){
                 $_SESSION['info'] = $info;
                 $_SESSION['email'] = $email;
                 $_SESSION['password'] = $password;
-                header('location: user-otp.php');
+                echo "<script>
+                alert('Usuario Registrado');
+                window.location= 'user-otp.php'
+                </script>";
+                //header('location: user-otp.php');
                 exit();
-            }else{
-                $errors['otp-error'] = "Fallo el envío del código!";
+     /*       }else{
+                $errors['otp-error'] = "Fallo el envío del código!";*/
             }
-        }else{
-            $errors['db-error'] = "No se pudo registrar usuario en la Base de Datos!";
+        /*}else{
+            $errors['db-error'] = "No se pudo registrar usuario en la Base de Datos!";*/
         }
     }
 

@@ -14,7 +14,7 @@
 
 
                 <form action="logueo.php" method="post" id="divLogin">
-                <h2 class="text-center">Formulario de Login</h2>
+                <h2 class="text-center">Inicio de Sesión</h2>
                     <p class="text-center">Ingresa con tu usuario y contraseña.</p>
                     <div class="form-group">
                         <input class="form-control" type="username" name="usuario" placeholder="Usuario" required value="<?php echo $usuario ?>">
