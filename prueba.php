@@ -8,7 +8,6 @@
 error_reporting(E_ALL ^ E_NOTICE);
 
     if(isset($_POST["pregunta1"])){
-        $asignatura = =$_POST["asignatura"];
         $pregAgre1 = $_POST["pregunta1"];
         $pregAgre2 = $_POST["pregunta2"];
         $pregAgre3 = $_POST["pregunta3"];
@@ -32,27 +31,19 @@ error_reporting(E_ALL ^ E_NOTICE);
         <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
             <form action="crearCuestionario.php" method="POST" id="form" class="form-md">
             <td>
-            <td>Sección:</td>
-            <input type="text" placeholder="Indique su sección">
-            </td>
-            <br>
-            <br>
-            <td>Asignatura:</td>
-                    <select name="asignatura" required>
-                        <option selected hidden value="" required>Indique la asignatura</option>
+            <td>asignatura:</td>
+                    <select name="pregunta1" required>
+                        <option selected hidden value="" required>Seleccione la pregunta</option>
                             <?php
-                                $result = $con->query("select * FROM clases");
+                                $result = $con->query("select * FROM preguntas_predeterminadas");
                                 while ($row = $result->fetch_assoc())
                                     { 
-                                        echo "<option required value='".$row['nombre_clase']."'>".$row['nombre_clase']." </option>";
+                                        echo "<option required value='".$row['nombre_pregunta']."'>".$row['nombre_pregunta']." </option>";
                                     }
                                     
                             ?>
                     </select>
-                </td>
-                <br>
-                <br>
-                
+                    <td><input type="text" placeholder="Indique sección" name="pregunta_predeterminada"  id="pregunta"  title="La pregunta solo debe contener signos como ¿?, letras y números del 1 al 5" required></td>
                 <td>Pregunta N°1:</td>
                     <select name="pregunta1" required>
                         <option selected hidden value="" required>Seleccione la pregunta</option>
