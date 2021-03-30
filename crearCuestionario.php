@@ -8,7 +8,7 @@
 error_reporting(E_ALL ^ E_NOTICE);
 
     if(isset($_POST["pregunta1"])){
-        $asignatura = =$_POST["asignatura"];
+        $asignatura = $_POST["asignatura"];
         $pregAgre1 = $_POST["pregunta1"];
         $pregAgre2 = $_POST["pregunta2"];
         $pregAgre3 = $_POST["pregunta3"];
