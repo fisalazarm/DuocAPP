@@ -8,6 +8,7 @@
 error_reporting(E_ALL ^ E_NOTICE);
     session_start();
     $usuario = $_SESSION['username'];
+    
 
     if(isset($_POST["pregunta1"])){
         $asignatura = $_POST["asignatura"];
@@ -15,7 +16,6 @@ error_reporting(E_ALL ^ E_NOTICE);
         $pregAgre2 = $_POST["pregunta2"];
         $pregAgre3 = $_POST["pregunta3"];
         $seccion = $_POST["codseccion"];
-        $usu = $usuario;
 
         $numRandom ="SELECT LPAD(FLOOR(RAND() * 999999.99), 6, '0') FROM DUAL";
         $insertar ="INSERT INTO encuesta (codigo_encuesta,id_clasefk,seccion,pregunta1,pregunta2,pregunta3,dia_encuesta,hora_encuesta,id_profesorfk) 

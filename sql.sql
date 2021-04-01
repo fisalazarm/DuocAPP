@@ -8,3 +8,7 @@ FROM encuesta en
        	INNER JOIN usertable ut on ut.id = en.id_profesorfk
         INNER JOIN tipo_usuario tiu ON tiu.id_tipo_usuario = ut.tipo_usuario
 ;
+
+SELECT en.codigo_encuesta, en.id_clasefk,en.seccion, en.pregunta1,en.pregunta2,en.pregunta3 
+FROM encuesta en
+WHERE en.id_profesorfk = 'Javier'and en.dia_encuesta = CURDATE()
