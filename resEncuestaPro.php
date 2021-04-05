@@ -3,8 +3,12 @@
 <?php $currentPage = 'docente'; ?>
 <?php include('head.php'); ?>
 <?php include('nav-bar.php'); ?>
-
 <?php include('conexion.php'); ?>
+<?php
+        error_reporting(E_ALL ^ E_NOTICE);
+        session_start();
+        $usuario = $_SESSION['username'];
+?>
 
 <body> 
 <div class="container">
@@ -14,28 +18,42 @@
                 <thead class="text-center">
                     <th>Codigo Encuesta</th>
                     <th>Asignatura </th>
-                    <th>Correo</th>
-                    <th>Contraseña</th>
-                    <th>codigo</th>
-                    <th>Estado</th>
-                    <th>Tipo Usuario</th>
+                    <th>Sección</th>
+                    <th>Pregunta 1</th>
+                    <th>Respuesta 1</th>                    
+                    <th>Pregunta 2</th>
+                    <th>Respuesta 2</th>
+                    <th>Pregunta 2</th>
+                    <th>Respuesta 3</th>
+                    <th>Responsable</th>                    
                 </thead>
                 <tbody>
                     <?php
-                        $sql ="SELECT * FROM usertable";
-                        $result = mysqli_query($con,$sql);
-                        while($usuario=mysqli_fetch_array($result))
+                        $sql ="SELECT en.codigo_encuesta as codigo, en.id_clasefk as asig,
+                                    en.seccion as seccion, 
+                                    en.pregunta1 as pre1, re.respuesta1 as re1, 
+                                    en.pregunta2 as pre2, re.respuesta2 as re2,
+                                    en.pregunta3 as pre3, re.respuesta3 as re3,
+                                    en.id_profesorfk as pro
+                            FROM encuesta en
+                            INNER JOIN respuesta_encuesta re ON RE.id_encuestafk = en.id_encuesta
+                            WHERE en.id_profesorfk = '$usuario' and en.dia_encuesta = CURDATE()";
+                            $result = mysqli_query($con,$sql);
+                            while($usuario=mysqli_fetch_array($result))
                         {
                         
                     ?>
                     <tr>
-                        <td><?php echo $usuario['id']?></td>
-                        <td><?php echo $usuario['username']?></td>
-                        <td><?php echo $usuario['email']?></td>
-                        <td><?php echo $usuario['password']?></td>
-                        <td><?php echo $usuario['code']?></td>
-                        <td><?php echo $usuario['status']?></td>
-                        <td><?php echo $usuario['tipo_usuario']?></td>
+                        <td><?php echo $usuario['codigo']?></td>
+                        <td><?php echo $usuario['asig']?></td>
+                        <td><?php echo $usuario['seccion']?></td>
+                        <td><?php echo $usuario['pre1']?></td>
+                        <td><?php echo $usuario['re1']?></td>
+                        <td><?php echo $usuario['pre2']?></td>
+                        <td><?php echo $usuario['re1']?></td>
+                        <td><?php echo $usuario['pre3']?></td>
+                        <td><?php echo $usuario['re1']?></td>
+                        <td><?php echo $usuario['pro']?></td>
                     </tr>
                     <?php
                         }
