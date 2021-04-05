@@ -10,6 +10,7 @@
     $respuesta1 =$_POST['Aceptacion'];
     $respuesta2 =$_POST['Aceptacion2'];
     $respuesta3 =$_POST['Aceptacion3'];
+    $comentario =$_POST['Comentario'];
 ?>
 
 <body>
@@ -134,7 +135,12 @@
                         <img class="img-fluid" src="images/Muy de acuerdo.png" alt="">
                     </label>
                 </div>
-                
+                <br>
+                <div>
+                    <label for="inputComentario">Ingrese un comentario (Opcional)</label>
+                    <br>
+                    <textarea type="text" name="Comentario" id="Comentario"></textarea>
+                </div>
                 <div name="coden" hidden> 
                 <input type="text" name="coden" value=" <?php echo $mostrar['codigo_encuesta']?>">
                
@@ -153,7 +159,7 @@
         <?php
                 $codigen=$_POST["coden"];
                 
-                    $insert ="INSERT INTO  respuesta_encuesta (id_encuestafk,respuesta1,respuesta2,respuesta3) VALUES ($codigen,'$respuesta1','$respuesta2','$respuesta3')";
+                    $insert ="INSERT INTO  respuesta_encuesta (id_encuestafk,respuesta1,respuesta2,respuesta3,comentario) VALUES ($codigen,'$respuesta1','$respuesta2','$respuesta3','$comentario')";
                 if(mysqli_query($con, $insert)){
                     echo "   ";
                 }else{
