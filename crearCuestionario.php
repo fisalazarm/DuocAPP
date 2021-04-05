@@ -30,7 +30,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 ?>
     <body>
         <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
-            <form action="crearCuestionario.php" method="POST" id="form" class="form-md">
+            <form action="crearCuestionario.php" method="POST" id="formCuestionario" class="form-md">
             <td>
             <td>Sección:</td>
             <input type="text" placeholder="Indique su sección">
@@ -99,7 +99,9 @@ error_reporting(E_ALL ^ E_NOTICE);
             <td>
             <br>
             <br>
-            <button type="submit" value="add">Agregar Encuesta</button>
+            <div class="text-center">
+                <button id="Enviar" type="submit" value="add">Agregar Encuesta</button>
+            </div>
             </form>
         </div>
     </body>
