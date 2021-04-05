@@ -35,7 +35,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 
     <body>
         <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
-            <form action="crearCuestionario.php" method="POST" id="form" class="form-md">
+            <form action="crearCuestionario.php" method="POST" id="formCuestionario" class="form-md">
             <td>
             <td>Sección:</td>
             <input type="text" name="codseccion" placeholder="Indique su sección" required>
@@ -104,6 +104,7 @@ error_reporting(E_ALL ^ E_NOTICE);
             <td>
             <br>
             <br>
+<<<<<<< HEAD
             <script>
                 function aviso() {
                     alert("La encuesta fue creada exitosamente");
@@ -111,6 +112,11 @@ error_reporting(E_ALL ^ E_NOTICE);
             </script>
             <button type="submit" onclick="aviso()" value="add">Agregar Encuesta</button>
             
+=======
+            <div class="text-center">
+                <button id="Enviar" type="submit" value="add">Agregar Encuesta</button>
+            </div>
+>>>>>>> cfbb9de30daedd57ace6bb2a564f8b59b6787606
             </form>
         </div>
     </body>
