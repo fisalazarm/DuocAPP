@@ -10,7 +10,7 @@
 
 <nav><ul>
         <li><a href="crearCuestionario.php">Crear Encuesta</a></li>
-        <li><a href="respuestaEncuesta.php ">Ver resultado de encuestas</a></li>
+        <li><a href="resEncuestaPro.php ">Ver resultado de encuestas</a></li>
     </ul></nav>
 
 
