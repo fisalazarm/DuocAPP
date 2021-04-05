@@ -80,7 +80,12 @@ error_reporting(E_ALL ^ E_NOTICE);
                             </select>
                         </td>
                     </div>
-                    <button type="submit" value="add">Agregar Pregunta Predeterminada</button>
+                    <script>
+                        function aviso() {
+                            alert("La pruegunta a sido ingresada");
+                        }
+                    </script>
+                    <button type="submit" onclick="aviso()" value="add">Agregar Pregunta Predeterminada</button>
                 </form>
             </div>
         </div>

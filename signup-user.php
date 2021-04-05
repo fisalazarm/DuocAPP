@@ -63,7 +63,12 @@
                             </select>
                     </div>                    
                     <div class="form-group">
-                        <input class="form-control button" type="submit" name="signup" value="Signup">
+                    <script>
+                        function aviso() {
+                            alert("Usuario registrado");
+                        }
+                    </script>
+                        <input class="form-control button" type="submit" onclick="aviso()" name="signup" value="Signup">
                     </div>
                     <div class="link login-link text-center">¿Ya eres un usuario?
                       <a href="login-user.php">Inicia Sesion</a>

@@ -37,9 +37,9 @@
                                     en.id_profesorfk as pro
                             FROM encuesta en
                             INNER JOIN respuesta_encuesta re ON RE.id_encuestafk = en.id_encuesta
-                            WHERE en.id_profesorfk = '$usuario' and en.dia_encuesta = CURDATE()";
-                            $result = mysqli_query($con,$sql);
-                            while($usuario=mysqli_fetch_array($result))
+                            WHERE pro = '$usuario' and en.dia_encuesta = CURDATE()";
+                        $result = mysqli_query($con,$sql);
+                        while($usuario=mysqli_fetch_array($result))
                         {
                         
                     ?>
@@ -60,6 +60,7 @@
                     ?>
                 </tbody>
             </table>
+            
            </div>
        </div> 
     </div>

@@ -104,7 +104,13 @@ error_reporting(E_ALL ^ E_NOTICE);
             <td>
             <br>
             <br>
-            <button type="submit" value="add">Agregar Encuesta</button>
+            <script>
+                function aviso() {
+                    alert("La encuesta fue creada exitosamente");
+                }
+            </script>
+            <button type="submit" onclick="aviso()" value="add">Agregar Encuesta</button>
+            
             </form>
         </div>
     </body>
