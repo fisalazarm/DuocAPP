@@ -84,8 +84,6 @@ error_reporting(E_ALL ^ E_NOTICE);
                             </select>
                         </td>
                     </div>
-
-                    <button type="submit" onclick="aviso()" value="add">Agregar Pregunta Predeterminada</button>
                     <button type="submit" id="Enviar" value="add">Agregar Pregunta Predeterminada</button>
                 </form>
             </div>
