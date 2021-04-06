@@ -21,6 +21,8 @@
                     <th>Escuela</th>
                     <th>Responsable</th>
                     <th>Cargo</th>
+                    <th>Sección</th>
+                    <th>Horario</th>
                     <th>Pregunta 1 </th>
                     <th>Respuesta 1</th>
                     <th>Pregunta 2</th>
@@ -35,6 +37,9 @@
                         tiu.descripcion_usuario as us,
                         CONCAT( en.dia_encuesta,' ', en.hora_encuesta) AS hf,
                         substr(en.dia_encuesta,1,4) as anno,
+                        en.seccion as sec,
+                    CASE WHEN en.hora_encuesta < '18:00:00' THEN 'Diurno'
+			             WHEN en.hora_encuesta > '18:00:00' THEN 'Vespertino' END as horario, 
                         en.pregunta1 as p1, 
                     CASE WHEN re.respuesta1 = 1 THEN 'Muy Desacuerdo' 
                          WHEN re.respuesta1 = 2 THEN 'En Desacuerdo' 
@@ -56,8 +61,8 @@
                                re.comentario as com
                     FROM encuesta en
                         INNER JOIN respuesta_encuesta re on en.codigo_encuesta = re.id_encuestafk
-                        INNER JOIN usertable ut on ut.id = en.id_profesorfk
-                        INNER JOIN tipo_usuario tiu ON tiu.id_tipo_usuario = ut.tipo_usuario";
+                        INNER JOIN usertable ut on en.id_profesorfk = ut.id
+                        INNER JOIN tipo_usuario tiu ON ut.tipo_usuario = tiu.id_tipo_usuario";
                         $result = mysqli_query($con,$sql);
                         while($sabana=mysqli_fetch_array($result))
                         {
@@ -69,6 +74,8 @@
                         <td><?php echo $sabana['coen']?></td>
                         <td><?php echo $sabana['un']?></td>
                         <td><?php echo $sabana['us']?></td>
+                        <td><?php echo $sabana['sec']?></td>
+                        <td><?php echo $sabana['horario']?></td>
                         <td><?php echo $sabana['p1']?></td>
                         <td><?php echo $sabana['r1']?></td>
                         <td><?php echo $sabana['p2']?></td>

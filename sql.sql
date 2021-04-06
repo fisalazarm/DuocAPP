@@ -12,3 +12,16 @@ FROM encuesta en
 SELECT en.codigo_encuesta, en.id_clasefk,en.seccion, en.pregunta1,en.pregunta2,en.pregunta3 
 FROM encuesta en
 WHERE en.id_profesorfk = 'Javier'and en.dia_encuesta = CURDATE()
+
+
+SELECT cl.nombre_clase, es.nombre_escuela
+FROM clases cl
+INNER JOIN escuela es ON cl.id_escuela = es.id_escuela
+
+SELECT * 
+from encuesta en
+JOIN clases cl ON en.id_clasefk = cl.id_clase
+
+SELECT CASE WHEN hora_encuesta < "18:00:00" THEN "Diurno"
+			WHEN hora_encuesta > "18:00:00" THEN "Vespertino" END as Horario 
+FROM `encuesta` 

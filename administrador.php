@@ -15,6 +15,7 @@
     </ul></nav>
 
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
     session_start();
     $usuario = $_SESSION['username'];
     echo  "<h1>Bienvenido $usuario al sistema de Administración</h1>";
