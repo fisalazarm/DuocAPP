@@ -84,15 +84,13 @@ error_reporting(E_ALL ^ E_NOTICE);
                             </select>
                         </td>
                     </div>
-<<<<<<< HEAD
+
                     <script>
                         function aviso() {
                             alert("Pregunta agregada");
                         }
                     </script>
-=======
 
->>>>>>> 6eca81b9c9f9b505521cde6b5837d1bda1400fd3
                     <button type="submit" id="Enviar" onclick="aviso()" value="add">Agregar Pregunta Predeterminada</button>
                 </form>
             </div>
