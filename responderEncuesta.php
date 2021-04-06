@@ -149,7 +149,12 @@
                 <br>
             </div>
         <div class="text-center">
-            <button id="Enviar" type="submit" class="btn btn-lg" name="Guardar">Enviar Respuesta</button>
+        <script>
+                        function aviso() {
+                            alert("Encuesta respondida");                                                       
+                        }
+                    </script>
+            <button id="Enviar" type="submit" onclick="aviso()" class="btn btn-lg" name="Guardar">Enviar Respuesta</button>
         </div>
         <?php
                 $codigen=$_POST["coden"];

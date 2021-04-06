@@ -40,10 +40,10 @@
                                     en.pregunta3 as pre3, re.respuesta3 as re3,
                                     en.id_profesorfk as pro
                             FROM encuesta en
-                            INNER JOIN respuesta_encuesta re ON RE.id_encuestafk = en.id_encuesta
+                            INNER JOIN respuesta_encuesta re ON en.codigo_encuesta = re.id_encuestafk
                             WHERE en.id_profesorfk = '$usuario' and en.dia_encuesta = CURDATE()";
-                            $result = mysqli_query($con,$sql);
-                            while($usuario=mysqli_fetch_array($result))
+                        $result = mysqli_query($con,$sql);
+                        while($usuario=mysqli_fetch_array($result))
                         {
                         
                     ?>
@@ -64,6 +64,7 @@
                     ?>
                 </tbody>
             </table>
+            
            </div>
        </div> 
     </div>
