@@ -57,6 +57,10 @@ error_reporting(E_ALL ^ E_NOTICE);
     
 ?>
     <body>
+    <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
+            <button onclick="history.go(-1);" id="Enviar" style="font-size: 25px">Volver </button>
+        </div>
+        <br>
         <div class="container-md justify-content-center" style="background-color:white" text-center py-5>
             <h2> Creación de Preguntas para las encuestas</h2>
             <br><br>

@@ -72,7 +72,10 @@
                     </div>
                     <div class="link login-link text-center">¿Ya eres un usuario?
                       <a href="login-user.php">Inicia Sesion</a>
-                  </div>
+                    </div>
+                    <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
+                        <button onclick="history.go(-1);" id="Enviar">Volver </button>
+                    </div>
                 </form>
             </div>
         </div>
