@@ -10,7 +10,7 @@
 <nav><ul>
         <li><a href="creacionPreguntas.php">Ingresar Preguntas</a></li>
         <li><a href="ResultadoEncuestaG.php ">Sabana</a></li>
-        <li><a href="Reportes.php ">Todos los usuario</a></li>
+        <li><a href="Reporte.php ">Todos los usuario</a></li>
         <li><a href="signup-user.php">Registrar Usuario</a></li>
     </ul></nav>
 

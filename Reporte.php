@@ -1,5 +1,5 @@
 <html>
-<?php $title = 'Reportes'; ?>
+<?php $title = 'Reportes de Usuarios Regitrados'; ?>
 <?php $currentPage = 'Reportes'; ?>
 <?php include('head.php'); ?>
 <?php include('nav-bar.php'); ?>
@@ -17,7 +17,9 @@
             <table id="tablaUsuarios" class="table-striped table-bordered" style="width:100%">
                 <thead class="text-center">
                     <th>id</th>
-                    <th>Usuario </th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Usuario</th>
                     <th>Correo</th>
                     <th>Contraseña</th>
                     <th>codigo</th>
@@ -34,6 +36,8 @@
                     ?>
                     <tr>
                         <td><?php echo $usuario['id']?></td>
+                        <td><?php echo $usuario['nombres']?></td>
+                        <td><?php echo $usuario['apellidos']?></td>
                         <td><?php echo $usuario['username']?></td>
                         <td><?php echo $usuario['email']?></td>
                         <td><?php echo $usuario['password']?></td>

@@ -61,7 +61,7 @@
                                re.comentario as com
                     FROM encuesta en
                         INNER JOIN respuesta_encuesta re on en.codigo_encuesta = re.id_encuestafk
-                        INNER JOIN usertable ut on en.id_profesorfk = ut.id
+                        INNER JOIN usertable ut on en.id_profesorfk = ut.username
                         INNER JOIN tipo_usuario tiu ON ut.tipo_usuario = tiu.id_tipo_usuario";
                         $result = mysqli_query($con,$sql);
                         while($sabana=mysqli_fetch_array($result))

@@ -84,6 +84,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                             </select>
                         </td>
                     </div>
+
                     <script>
                         function aviso() {
                             alert("Pregunta agregada");
