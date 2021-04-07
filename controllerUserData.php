@@ -8,6 +8,8 @@ error_reporting(0);
 
 //if user signup button
 if(isset($_POST['signup'])){
+    $nombre = mysqli_real_escape_string($con, $_POST['nombre']);
+    $apellido = mysqli_real_escape_string($con, $_POST['apellido']);
     $usuario = mysqli_real_escape_string($con, $_POST['username']);
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
@@ -26,8 +28,8 @@ if(isset($_POST['signup'])){
         $code = rand(999999, 111111);
         $status = "notverified";
         $tipoU = $_POST['tipo_usuario'];
-        $insert_data = "INSERT INTO usertable (username, email, password, code, status,tipo_usuario)
-                        values('$usuario', '$email', '$encpass', '$code', '$status','$tipoU')";
+        $insert_data = "INSERT INTO usertable (nombres,apellidos,username, email, password, code, status,tipo_usuario)
+                        values('$nombre','$apellido','$usuario', '$email', '$encpass', '$code', '$status','$tipoU')";
         $data_check = mysqli_query($con, $insert_data);
         if($data_check){
             $subject = "Codigo de verificación de Email";

@@ -38,6 +38,12 @@
                         <?php
                     }
                     ?>
+                     <div class="form-group">
+                        <input class="form-control" type="text" name="nombre" placeholder="Nombres" required value="<?php echo $usuario ?>">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="apellido" placeholder="Apellidos" required value="<?php echo $usuario ?>">
+                    </div>
                     <div class="form-group">
                         <input class="form-control" type="text" name="username" placeholder="Usuario" required value="<?php echo $usuario ?>">
                     </div>
@@ -52,7 +58,7 @@
                     </div>
                     <div class="form-group">
                     <select name="tipo_usuario" required>
-                                <option name="id_tipo_usuario" selected hidden value="" required>Seleccione el usuario</option>
+                                <option name="id_tipo_usuario" selected hidden value="" required>Tipo de usuario</option>
                                 <?php
                                     $result = $con->query("select * FROM tipo_usuario");
                                     while ($row = $result->fetch_assoc())
