@@ -45,19 +45,22 @@
                          WHEN re.respuesta1 = 2 THEN 'En Desacuerdo' 
                          WHEN re.respuesta1 = 3 THEN 'Neutro' 
                          WHEN re.respuesta1 = 4 THEN 'De Acuerdo'  
-                         WHEN re.respuesta1 = 5 THEN 'Muy Acuerdo'  end as r1,
+                         WHEN re.respuesta1 = 5 THEN 'Muy Acuerdo' 
+                         WHEN re.respuesta1 = 0 THEN 'Sin Responder'  end as r1,
                         en.pregunta2 as p2,
                     CASE WHEN re.respuesta2 = 1 THEN 'Muy Desacuerdo' 
                          WHEN re.respuesta2 = 2 THEN 'En Desacuerdo' 
                          WHEN re.respuesta2 = 3 THEN 'Neutro' 
                          WHEN re.respuesta2 = 4 THEN 'De Acuerdo'  
-                         WHEN re.respuesta2 = 5 THEN 'Muy Acuerdo'  end as r2,
+                         WHEN re.respuesta2 = 5 THEN 'Muy Acuerdo' 
+                         WHEN re.respuesta1 = 0 THEN 'Sin Responder'   end as r2,
                         en.pregunta3 as p3,
                     CASE WHEN re.respuesta3 = 1 THEN 'Muy Desacuerdo' 
                          WHEN re.respuesta3 = 2 THEN 'En Desacuerdo' 
                          WHEN re.respuesta3 = 3 THEN 'Neutro' 
                          WHEN re.respuesta3 = 4 THEN 'De Acuerdo'  
-                         WHEN re.respuesta3 = 5 THEN 'Muy Acuerdo'  end as r3,
+                         WHEN re.respuesta3 = 5 THEN 'Muy Acuerdo' 
+                         WHEN re.respuesta1 = 0 THEN 'Sin Responder'   end as r3,
                                re.comentario as com
                     FROM encuesta en
                         INNER JOIN respuesta_encuesta re on en.codigo_encuesta = re.id_encuestafk
