@@ -62,3 +62,7 @@
             width: 699px; 
             height: 150px;
         }
+        #SelectPregunta{
+            width: 200px;
+            text-overflow: ellipsis;
+        }

@@ -36,7 +36,7 @@ error_reporting(E_ALL ^ E_NOTICE);
     <body>
         <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
             <button onclick="history.go(-1);" id="Enviar" style="font-size: 25px">Volver </button>
-        </div>pul
+        </div>
         <br>    
         <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
             <form action="crearCuestionario.php" method="POST" id="formCuestionario" class="form-md">
@@ -47,7 +47,7 @@ error_reporting(E_ALL ^ E_NOTICE);
             <br>
             <br>
             <td>Asignatura:</td>
-                    <select name="asignatura" required>
+                    <select name="asignatura" class="form-select form-select-lg mb-1" id="SelectPregunta" required>
                         <option selected hidden value="" required>Indique la asignatura</option>
                             <?php
                                 $result = $con->query("select * FROM clases");
@@ -63,7 +63,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                 <br>
                 
                 <td>Pregunta N°1:</td>
-                    <select name="pregunta1" required>
+                    <select name="pregunta1" class="form-select form-select-lg" id="SelectPregunta" required>
                         <option selected hidden value="" required>Seleccione la pregunta</option>
                             <?php
                                 $result = $con->query("select * FROM preguntas_predeterminadas");
@@ -78,7 +78,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                 <br>
                 <br>
                 <td>Pregunta N°2:</td>
-                    <select name="pregunta2" required>
+                    <select name="pregunta2" id="SelectPregunta" required>
                         <option selected hidden value="" required>Seleccione la pregunta</option>
                             <?php
                                 $result = $con->query("select * FROM preguntas_predeterminadas");
@@ -93,7 +93,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                 <br>
                 <br>
                 <td>Pregunta N°3:</td>
-                    <select name="pregunta3" required>
+                    <select name="pregunta3" id="SelectPregunta" required>
                         <option selected hidden value="" required>Seleccione la pregunta</option>
                             <?php
                                 $result = $con->query("select * FROM preguntas_predeterminadas");
