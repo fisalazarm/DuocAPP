@@ -14,6 +14,7 @@
 <div class="container">
        <div class="row">
            <div class="col-lg-12">
+           <a href="exportarDatos.php">Descargar</a>
             <table id="tablaUsuarios" class="table-striped table-bordered" style="width:100%">
                 <thead class="text-center">
                     <th>Fecha y Hora</th>
@@ -67,9 +68,10 @@
                         INNER JOIN usertable ut on en.id_profesorfk = ut.username
                         INNER JOIN tipo_usuario tiu ON ut.tipo_usuario = tiu.id_tipo_usuario";
                         $result = mysqli_query($con,$sql);
+
                         while($sabana=mysqli_fetch_array($result))
                         {
-                        
+
                     ?>
                     <tr>
                         <td><?php echo $sabana['hf']?></td>
@@ -93,10 +95,39 @@
                     ?>
                 </tbody>
             </table>
+            <?php 
+            if(isset($_POST["export_data"])) {
+                if(!empty($result)) {
+                $filename = "Sabana.xlxs";
+                header("Content-Type: application/vnd.ms-excel");
+                header("Content-Disposition: attachment; filename=".$filename);
+               
+                $mostrar_columnas = false;
+               
+                foreach($result as $sabana) {
+                if(!$mostrar_columnas) {
+                echo implode("\t", array_keys($sabana)) . "\n";
+                $mostrar_columnas = true;
+                }
+                echo implode("\t", array_values($sabana)) . "\n";
+                }
+               
+                }else{
+                echo 'No hay datos a exportar';
+                }
+                exit;
+               }
+            ?>
            </div>
        </div> 
     </div>
    
+    <?php/*
+header("Status: 301 Moved Permanently");
+header("Location: ResultadoEncuestaG.php");
+exit;
+*/
+?>
     
 
 
