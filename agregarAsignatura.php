@@ -39,30 +39,15 @@ error_reporting(E_ALL ^ E_NOTICE);
         VALUES ('$codigoAsi','$asignatura','$escuela','$optativo')";
         
         $con->query($insertar);
-      /*  if($con->query($insertar) === true){
-            echo '<div><form action=""><input type="checkbox">'.$pregAgre.'</form></div>';
-        }else{
-            die("Error al insertar datos: " . $con->error);
-        }*/
+
     }
-  
-  
 
 
-
-    /*$insertar ="INSERT INTO preguntas_predeterminadas ('nombre_pregunta','id_tipo_preguntafk'
-    VALUES ($pregAgre,1)";
-*/
-
-    
-
-
-    
 ?>
     <body>
     <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
             <button onclick="history.go(-1);" id="Enviar" style="font-size: 25px">Volver </button>
-            <a href="administrador.php" class="btn btn-success">Volver</a>
+
 
         </div>
         <br>
@@ -71,47 +56,53 @@ error_reporting(E_ALL ^ E_NOTICE);
             <br><br>
             <div>
                 <form action="agregarAsignatura.php" method="POST" id="form" class="form-md">
-                    <div class="form-group">
-                        <td>Asignatura:</td>
-                        <td><input type="text" placeholder="Ej: Matemáticas" name="asignatura" required></td>
-                    </div>
-                    <div class="form-group">
-                        <td>Código:</td>
-                        <td><input type="text" placeholder="AAA0000" name="codigo" required></td>
-                    </div>
-                        <td>
-                            <td>Escuela:</td>
-                            <select name="nombre_escuela" required>
-                                <option name="idPregunta" selected hidden value="" required>Escuela</option>
-                                <?php
-                                    $result = $con->query("select * FROM escuela");
-                                    while ($row = $result->fetch_assoc())
-                                    { 
-                                        echo "<option required value='".$row['id_escuela']."'>".$row['nombre_escuela']." </option>";           
-                                    }                                    
-                                ?>
-                            </select>
+                <td>
+                    <td>Asignatura:</td>
+                    <td><input type="text" placeholder="Ej: Matemáticas" name="asignatura" required></td>
+                </td>
+                <br>
+                <br>
+                <td>
+                    <td>Código:</td>
+                    <td><input type="text" placeholder="AAA0000" name="codigo" required></td>
+                </td>
+                <br>
+                <br>
+                    <td>Escuela:</td>
+                        <select name="nombre_escuela" required>
+                        <option name="idPregunta" selected hidden value="" required>Indique la Escuela</option>
+                <?php
+                    $result = $con->query("select * FROM escuela");
+                    while ($row = $result->fetch_assoc())
+                    { 
+                    echo "<option required value='".$row['id_escuela']."'>".$row['nombre_escuela']." </option>";           
+                    }                                    
+                    ?>
+                </select>
+                    </td>
+                    <br>
+                    <br>
+                    <td>
+                    <td>Optativo:</td>
+                        <select name="optativo" required>
+                        <option name="idPregunta" selected hidden value="" required>--Opción--</option>
+                        <?php
+                            $result = $con->query("select * FROM optativo");
+                            while ($row = $result->fetch_assoc())
+                                { 
+                                    echo "<option required value='".$row['id_optativo']."'>".$row['descripcion']." </option>";           
+                                }                                    
+                        ?>
+                        </select>
                         </td>
-                        <td>Optativo:</td>
-                            <select name="optativo" required>
-                                <option name="idPregunta" selected hidden value="" required>Opción</option>
-                                <?php
-                                    $result = $con->query("select * FROM optativo");
-                                    while ($row = $result->fetch_assoc())
-                                    { 
-                                        echo "<option required value='".$row['id_optativo']."'>".$row['descripcion']." </option>";           
-                                    }                                    
-                                ?>
-                            </select>
-                        </td>
-                    </div>
-
-                    <script>/*
+                        <br>
+                        <br>
+                    <script>
                         function aviso() {
                             alert("Asignatura agregada");
                         }
                     </script>
-                    <button type="submit" id="Enviar" value="add">Agregar Asignatura</button>
+                        <button type="submit" id="Enviar" value="add">Agregar Asignatura</button>
                 </form>
             </div>
         </div>
