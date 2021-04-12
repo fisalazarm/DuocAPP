@@ -19,7 +19,7 @@
                 <thead class="text-center">
                     <th>Fecha y Hora</th>
                     <th>Año</th>
-                    <th>Escuela</th>
+                    <th>Codigo Encuesta</th>
                     <th>Responsable</th>
                     <th>Cargo</th>
                     <th>Sección</th>
