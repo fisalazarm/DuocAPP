@@ -1,67 +1,92 @@
 <html>
-    <?php $title = 'Crear Cuestionario'; ?>
-    <?php $currentPage = 'crearCuestionario'; ?>
+    <?php $title = 'Prueba Asignatura'; ?>
+    <?php $currentPage = 'agregarAsignatura'; ?>
     <?php include('head.php'); ?>
     <?php include('nav-bar.php'); ?>
     <?php include('conexion.php'); ?>
     <?php
 //error_reporting(E_ALL ^ E_NOTICE);
+ 
+    
 
+    if(isset($_POST["Asignatura"])){
+        $asignatura = $_POST["Asignatura"];
+        $codigoAsi = $_POST["codAsig"];
+        $escuela = $_POST["escuela"];
+        $optativo = $_POST["optativo"];
+
+        $insertar ="INSERT INTO asignatura(id_asignatura, codigo_asignatura, nombre_asignatura, id_escuela, optativo) 
+                      VALUES ('$codigoAsi','$asignatura','$escuela','$optativo')";
+        
+        $con->query($insertar);
+        
+        
+    }
+    
 ?>
-    <?php
-        $sql_query = "SELECT id_encuesta,codigo_encuesta,id_clasefk,seccion,
-                        pregunta1,pregunta2,pregunta3,dia_encuesta, hora_encuesta, id_profesorfk
-                        FROM encuesta";
-        $resultset = mysqli_query($con, $sql_query) or die("database error:". mysqli_error($con));
-        $developer_records = array();
-        while( $rows = mysqli_fetch_assoc($resultset) ) {
-        $developer_records[] = $rows;
-        }
-    ?>
+
     <body>
-        <div class="container">
-    <h2>Export Data to Excel with PHP and MySQL</h2>
-    <div class="well-sm col-sm-12">
-    <div class="btn-group pull-right">
-    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-    <a href="exportarDatos.php">Descargar</a>
-    </form>
-    </div>
-    </div>
-    <table id="" class="table table-striped table-bordered">
-    <tr>
-    <th>ID</th>
-    <th>Encuesta</th>
-    <th>Clase</th>
-    <th>Sección</th>
-    <th>Pregunta</th>
-    <th>Pregunta</th>
-    <th>Pregunta</th>
-    <th>Dia</th>
-    <th>Hora</th>
-    <th>Profe</th>
-    </tr>
-    <tbody>
-    <?php foreach($developer_records as $developer) { ?>
-    <tr>
-                  
-    <td><?php echo $developer ['id_encuesta']; ?></td>
-    <td><?php echo $developer ['codigo_encuesta']; ?></td>
-    <td><?php echo $developer ['id_clasefk']; ?></td>
-    <td><?php echo $developer ['seccion']; ?></td>
-    <td><?php echo $developer ['pregunta1']; ?></td>
-    <td><?php echo $developer ['pregunta2']; ?></td>
-    <td><?php echo $developer ['pregunta3']; ?></td>
-    <td><?php echo $developer ['dia_encuesta']; ?></td>
-    <td><?php echo $developer ['hora_encuesta']; ?></td>
-    <td><?php echo $developer ['id_profesorfk']; ?></td>
+        <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
+            <button onclick="history.go(-1);" id="Enviar" style="font-size: 25px">Volver </button>
+        </div>
+        <br>    
+        <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
+            <form action="agregarAsignatura.php" method="POST" id="formAsignatura" class="form-md">
+            <td>
+            <td>Asignatura:</td>
+            <input type="text" name="Asignatura" placeholder="Indique la Asignatura" required>
+            </td>
+            <br>
+            <br>
+            <td>
+            <td>Código:</td>
+            <input type="text" name="codAsig" placeholder="Indique la Asignatura" required>
+            </td>
+            <br>
+            <br>
+            <td>Escuela:</td>
+                    <select name="escuela" class="form-select form-select-lg mb-1" id="SelectPregunta" >
+                        <option selected hidden value="" required>Indique la Escuela</option>
+                            <?php
+                                $result = $con->query("select * FROM escuela");
+                                while ($row = $result->fetch_assoc())
+                                    { 
+                                        echo "<option required value='".$row['id_escuela']."'>".$row['nombre_escuela']." </option>";
+                                    }
+                                    
+                            ?>
+                    </select>
+                </td>
+                <br>
+                <br>
+                <td>Optativo:</td>
+                    <select name="optativo" class="form-select form-select-lg mb-1" >
+                        <option selected hidden value="" required>¿Es optativo?</option>
+                            <?php
+                                $result = $con->query("select * FROM optativo");
+                                while ($row = $result->fetch_assoc())
+                                    { 
+                                        echo "<option required value='".$row['id_optativo']."'>".$row['descripcion']." </option>";
+                                    }
+                                    
+                            ?>
+                    </select>
+                </td>
+               
+            <br>
+            <br>
+            <script>/*
+                function aviso() {
+                    alert("La ASignatura fue ingresada correctamente");
+                }*/
+            </script>
+           
 
-    </tr>
-    <?php } ?>
-    </tbody>
-    </table>
-    </div>
-
-
+            <div class="text-center">
+            
+            <button id="Enviar" type="submit"  value="add">Agregar Asignatura</button>
+            </div>
+            </form>
+        </div>
     </body>
 </html>
