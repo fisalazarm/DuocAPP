@@ -122,7 +122,8 @@
        </div> 
     </div>
    
-    <?php/*
+    <?php
+    /*
 header("Status: 301 Moved Permanently");
 header("Location: ResultadoEncuestaG.php");
 exit;
