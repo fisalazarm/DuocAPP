@@ -23,7 +23,7 @@ if(isset($_POST["Import"])){
 				{
 					echo "<script type=\"text/javascript\">
 							alert(\"Invalid File:Please Upload CSV File.\");
-							window.location = \"PruebaSubidaExcel.php\"
+							window.location = \"IngresoPlanDeEstudio.php\"
 						</script>";
  
 				}
@@ -33,7 +33,7 @@ if(isset($_POST["Import"])){
 	         //throws a message if data successfully imported to mysql database from excel file
 	         echo "<script type=\"text/javascript\">
 						alert(\"CSV File has been successfully Imported.\");
-						window.location = \"PruebaSubidaExcel.php\"
+						window.location = \"IngresoPlanDeEstudio.php\"
 					</script>";
  
  
