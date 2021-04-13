@@ -45,23 +45,24 @@ ul{
     <nav class="col-12 text-white py-3" >
         <ul id="menu">
         <li><a href="ResultadoEncuestaG.php ">Reporte</a></li>
-          <li><a href="">Tutoriales</a></li>
-          <li><a href="">Usuarios</a>
+            <li><a href="ingresoPlanDeEstudio.php">Plan Estudio</a></li>
+            <li><a href="">Usuarios</a>
             <ul>
                 <li><a href="Reporte.php ">Todos los usuario</a></li>
                 <li><a href="signup-user.php">Registrar Usuario</a></li>
-                <li><a href="">Eliminar Usuarios</a></li>
-              
+                <li><a href="IngresoUsuarios.php">Cargar Usuarios</a></li>
+                <li><a href="">Eliminar Usuarios</a></li>              
             </ul>  
-          </li>          
-          <li><a href="">Encuesta</a>
-          <ul>
-          <li><a href="creacionPreguntas.php">Ingresar Preguntas</a></li>
-              <li><a href="">Eliminar Preguntas</a></li>
-              <li><a href=""> Pregutas Registradas</a></li>
+        </li>          
+        <li><a href="">Encuesta</a>
+            <ul>
+                <li><a href="creacionPreguntas.php">Ingresar Preguntas</a></li>
+                <li><a href="">Eliminar Preguntas</a></li>
+                <li><a href=""> Pregutas Registradas</a></li>
+                <li><a href="agregarAsignatura.php"> Registrar Asignatura</a></li>
             </ul> 
           </li>
-          
+                    
         </ul>
       </nav>
     </header>
