@@ -91,6 +91,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                         <button type="submit" id="Enviar" value="add">Agregar Asignatura</button>
                 </form>
             </div>
+            
         </div>
     </body>
 </html>

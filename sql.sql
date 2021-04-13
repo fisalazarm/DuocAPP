@@ -238,3 +238,49 @@ Programa de Matemáticas	MAT1110	NIVELACIÓN MATEMÁTICA
                         ADDA507	TUTORÍA MODELO VIRTUAL	
 
 */
+
+SELECT codAsignatura,nombreAsignatura,escuela,
+        CASE WHEN escuela = 'Diseño' THEN 1 END
+FROM plandeestudio;
+
+SELECT codAsignatura,nombreAsignatura,escuela,
+        CASE WHEN escuela = 'Dise?o' THEN 1
+             WHEN escuela = 'Inform?tica y Telecomunicaciones' THEN 2 
+         	 WHEN escuela = 'Administraci?n y Negocios' THEN 3
+             WHEN escuela = 'Extracurricular Deportes Ancla' THEN 4
+             WHEN escuela = 'Extracurricular Selecciones Deporte' THEN 5
+             WHEN escuela = 'Extracurricular Asuntos Estudiantiles' THEN 6
+             WHEN escuela = 'Programa de Emprendimiento' THEN 7
+             WHEN escuela = 'Programa de Etica' THEN 8
+             WHEN escuela = 'Programa de Ingl?s' THEN 9
+             WHEN escuela = 'Programa de Matem?ticas' THEN 10
+             WHEN escuela = 'Comunicaci?n' THEN 11
+             WHEN escuela = 'Programa de Formaci?n Cristiana' THEN 12
+             WHEN escuela = 'Programa de Lenguaje y Comunicaci?n' THEN 13
+             WHEN escuela = 'Construcci?n' THEN 14
+             WHEN escuela = 'Escuela' THEN 15
+             WHEN escuela = ' ' THEN 0
+             END
+FROM plandeestudio
+INSERT INTO `asignatura`(`codigo_asignatura`, `nombre_asignatura`, `id_escuela`) 
+SELECT DISTINCTROW codAsignatura,nombreAsignatura,
+        CASE WHEN escuela = 'Dise?o' THEN 1
+             WHEN escuela = 'Inform?tica y Telecomunicaciones' THEN 2 
+         	 WHEN escuela = 'Administraci?n y Negocios' THEN 3
+             WHEN escuela = 'Extracurricular Deportes Ancla' THEN 4
+             WHEN escuela = 'Extracurricular Selecciones Deporte' THEN 5
+             WHEN escuela = 'Extracurricular Asuntos Estudiantiles' THEN 6
+             WHEN escuela = 'Programa de Emprendimiento' THEN 7
+             WHEN escuela = 'Programa de Etica' THEN 8
+             WHEN escuela = 'Programa de Ingl?s' THEN 9
+             WHEN escuela = 'Programa de Matem?ticas' THEN 10
+             WHEN escuela = 'Comunicaci?n' THEN 11
+             WHEN escuela = 'Programa de Formaci?n Cristiana' THEN 12
+             WHEN escuela = 'Programa de Lenguaje y Comunicaci?n' THEN 13
+             WHEN escuela = 'Construcci?n' THEN 14
+             WHEN escuela = 'Escuela' THEN 15
+             WHEN escuela = ' ' THEN 0
+             END
+FROM plandeestudio
+
+
