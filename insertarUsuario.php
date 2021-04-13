@@ -15,8 +15,8 @@ if(isset($_POST["Import"])){
 	         {
  
 	          //It wiil insert a row to our subject table from our csv file`
-	           $sql = "INSERT into plandeestudio (`ano`, `periodo`, `nombreSede`, `planDeEstudio`,escuela, `codJornada`, `nivel`, `seccion`, `codAsignatura`, `nombreAsignatura`, `rutDocente`, `Instructor`) 
-	            	values('$emapData[0]','$emapData[1]','$emapData[2]','$emapData[3]','$emapData[4]','$emapData[5]','$emapData[6]','$emapData[7]','$emapData[8]','$emapData[9]','$emapData[10]','$emapData[11]')";
+	           $sql = "INSERT into usertable (`nombres`, `apellidos`, `username`, `email`,password, `tipo_usuario`) 
+	            	values('$emapData[0]','$emapData[1]','$emapData[2]','$emapData[3]','$emapData[4]','$emapData[5]')";
 	         //we are using mysql_query function. it returns a resource on true else False on error
 	          $result = mysqli_query( $con, $sql );
 				if(! $result )
