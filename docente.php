@@ -53,7 +53,7 @@ ul{
       </nav>
     </header>
     
-  </body>
+
   <main class="row p-4">
         <form action="" class="row">
                 <?php
