@@ -18,7 +18,7 @@ ul{
   list-style: none;
 }
 #menu li>a{
-  background-color: grey;
+  background-color:  #00162b;
   color: white;
   padding: 10px;
   display: block;
