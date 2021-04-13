@@ -1,67 +1,72 @@
 <html>
-    <?php $title = 'Crear Cuestionario'; ?>
-    <?php $currentPage = 'crearCuestionario'; ?>
+    <?php $title = 'Prueba Asignatura'; ?>
+    <?php $currentPage = 'agregarAsignatura'; ?>
     <?php include('head.php'); ?>
     <?php include('nav-bar.php'); ?>
     <?php include('conexion.php'); ?>
-    <?php
-//error_reporting(E_ALL ^ E_NOTICE);
+    
+<style>
+    *{
+  margin: 0;
+  padding: 0;
+}
 
-?>
-    <?php
-        $sql_query = "SELECT id_encuesta,codigo_encuesta,id_clasefk,seccion,
-                        pregunta1,pregunta2,pregunta3,dia_encuesta, hora_encuesta, id_profesorfk
-                        FROM encuesta";
-        $resultset = mysqli_query($con, $sql_query) or die("database error:". mysqli_error($con));
-        $developer_records = array();
-        while( $rows = mysqli_fetch_assoc($resultset) ) {
-        $developer_records[] = $rows;
-        }
-    ?>
-    <body>
-        <div class="container">
-    <h2>Export Data to Excel with PHP and MySQL</h2>
-    <div class="well-sm col-sm-12">
-    <div class="btn-group pull-right">
-    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-    <a href="exportarDatos.php">Descargar</a>
-    </form>
-    </div>
-    </div>
-    <table id="" class="table table-striped table-bordered">
-    <tr>
-    <th>ID</th>
-    <th>Encuesta</th>
-    <th>Clase</th>
-    <th>Sección</th>
-    <th>Pregunta</th>
-    <th>Pregunta</th>
-    <th>Pregunta</th>
-    <th>Dia</th>
-    <th>Hora</th>
-    <th>Profe</th>
-    </tr>
-    <tbody>
-    <?php foreach($developer_records as $developer) { ?>
-    <tr>
-                  
-    <td><?php echo $developer ['id_encuesta']; ?></td>
-    <td><?php echo $developer ['codigo_encuesta']; ?></td>
-    <td><?php echo $developer ['id_clasefk']; ?></td>
-    <td><?php echo $developer ['seccion']; ?></td>
-    <td><?php echo $developer ['pregunta1']; ?></td>
-    <td><?php echo $developer ['pregunta2']; ?></td>
-    <td><?php echo $developer ['pregunta3']; ?></td>
-    <td><?php echo $developer ['dia_encuesta']; ?></td>
-    <td><?php echo $developer ['hora_encuesta']; ?></td>
-    <td><?php echo $developer ['id_profesorfk']; ?></td>
+ul{
+  list-style: none;
+}
+#menu li>a{
+  background-color: grey;
+  color: white;
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  min-width: 100px;
+}
+#menu li>a:hover{
+  color: #000;
+  background-color: #eaeaea;
+}
+#menu>li{
+  float: left;
+  text-align:center
+}
+#menu>li>ul{
+  display: none;
+}
+#menu>li:hover>ul {
+  display:block;
+}
+</style>
+ 
+    
 
-    </tr>
-    <?php } ?>
-    </tbody>
-    </table>
-    </div>
+  <body>
+  <header class="row">
+    <nav class="col-12 bg-dark text-white py-3" >
+        <ul id="menu">
+          <li><a href="">Inicio</a></li>
+          <li><a href="">Cursos</a>
+            <ul>
+              <li><a href="">Frontend</a></li>
+              <li><a href="">Backend</a></li>
+              <li><a href="">Mobile</a></li>
+            </ul>  
+          </li>
+          <li><a href="">Tutoriales</a></li>
+          <li><a href="">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+  </body>
+  <main class="row p-4">
+        <form action="" class="row">
+                <?php
+                    session_start();
+                    $usuario = $_SESSION['username'];
+                    echo  "<h1>Bienvenido $usuario al menú de Docentes</h1>";
+                ?>
+        </form>
+</main>
 
-
-    </body>
 </html>
