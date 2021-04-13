@@ -35,8 +35,8 @@ error_reporting(E_ALL ^ E_NOTICE);
         $optativo = $_POST["optativo"];
 
 
-        $insertar ="INSERT INTO asignatura(codigo_asignatura, nombre_asignatura, id_escuela, optativo)
-        VALUES ('$codigoAsi','$asignatura','$escuela','$optativo')";
+        $insertar ="INSERT INTO asignatura(codigo_asignatura, nombre_asignatura, id_escuela)
+        VALUES ('$codigoAsi','$asignatura','$escuela')";
         
         $con->query($insertar);
 
@@ -82,21 +82,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                     </td>
                     <br>
                     <br>
-                    <td>
-                    <td>Optativo:</td>
-                        <select name="optativo" required>
-                        <option name="idPregunta" selected hidden value="" required>--Opción--</option>
-                        <?php
-                            $result = $con->query("select * FROM optativo");
-                            while ($row = $result->fetch_assoc())
-                                { 
-                                    echo "<option required value='".$row['id_optativo']."'>".$row['descripcion']." </option>";           
-                                }                                    
-                        ?>
-                        </select>
-                        </td>
-                        <br>
-                        <br>
+                  
                     <script>
                         function aviso() {
                             alert("Asignatura agregada");
