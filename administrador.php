@@ -12,7 +12,6 @@
         <li><a href="ResultadoEncuestaG.php ">Sabana</a></li>
         <li><a href="Reporte.php ">Todos los usuario</a></li>
         <li><a href="signup-user.php">Registrar Usuario</a></li>
-        <li><a href="agregarAsignatura.php">Agregar Asignatura</a></li>
     </ul></nav>
 
 <?php

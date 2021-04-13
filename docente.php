@@ -4,23 +4,65 @@
 <?php include('head.php'); ?>
 <?php include('nav-bar.php'); ?>
 
-<body>
-<link rel="stylesheet" href="css/menu.css" type="text/css"  />
 
 
-<nav><ul>
-        <li><a href="crearCuestionario.php">Crear Encuesta</a></li>
-        <li><a href="resEncuestaPro.php ">Ver resultado de encuestas</a></li>
-    </ul></nav>
+   
+    
+<style>
+    *{
+  margin: 0;
+  padding: 0;
+}
 
+ul{
+  list-style: none;
+}
+#menu li>a{
+  background-color: grey;
+  color: white;
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  min-width: 100px;
+}
+#menu li>a:hover{
+  color: #000;
+  background-color: #eaeaea;
+}
+#menu>li{
+  float: left;
+  text-align:center
+}
+#menu>li>ul{
+  display: none;
+}
+#menu>li:hover>ul {
+  display:block;
+}
+</style>
+ 
+    
 
-<?php
-    session_start();
-    $usuario = $_SESSION['username'];
-    echo  "<h1>Bienvenido $usuario al menú de Docentes</h1>";
-
-
-?>
+  <body>
+  <header class="row">
+    <nav class="col-12 text-white py-3" >
+        <ul id="menu">
+            <li><a href="crearCuestionario.php">Crear Encuesta</a></li>
+            <li><a href="resEncuestaPro.php ">Ver resultado de encuestas</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+  </body>
+  <main class="row p-4">
+        <form action="" class="row">
+                <?php
+                    session_start();
+                    $usuario = $_SESSION['username'];
+                    echo  "<h1>Bienvenido $usuario al menú de Docentes</h1>";
+                ?>
+        </form>
+</main>
 
 </body>    
 </html> 
