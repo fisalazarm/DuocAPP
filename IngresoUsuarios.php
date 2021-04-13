@@ -12,7 +12,7 @@
 		<div class="row">
 			<div class="span3 hidden-phone"></div>
 			<div class="span6" id="form-login">
-				<form class="form-horizontal well" action="insertarUsuarios.php" method="post" name="upload_excel" enctype="multipart/form-data">
+				<form class="form-horizontal well" action="insertarUsuario.php" method="post" name="upload_excel" enctype="multipart/form-data">
 					<fieldset class="container-md d-flex justify-content-center">
 						<legend>Importar CSV/Excel Archivo</legend>
 						<div class="control-group">
