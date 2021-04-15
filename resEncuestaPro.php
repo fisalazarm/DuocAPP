@@ -33,7 +33,8 @@
                 </thead>
                 <tbody>
                     <?php
-                        $sql ="SELECT en.codigo_encuesta as codigo, en.id_clasefk as asig,
+                        $sql ="SELECT en.codigo_encuesta as codigo, 
+                                    asi.nombre_Asignatura as asig,
                                     en.seccion as seccion, 
                                     en.pregunta1 as pre1, re.respuesta1 as re1, 
                                     en.pregunta2 as pre2, re.respuesta2 as re2,
@@ -41,6 +42,7 @@
                                     en.id_profesorfk as pro
                             FROM encuesta en
                             INNER JOIN respuesta_encuesta re ON en.codigo_encuesta = re.id_encuestafk
+                            join asignatura asi on asi.id_asignatura = en.id_clasefk
                             WHERE en.id_profesorfk = '$usuario' and en.dia_encuesta = CURDATE()";
                         $result = mysqli_query($con,$sql);
                         while($usuario=mysqli_fetch_array($result))
