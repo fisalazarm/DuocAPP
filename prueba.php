@@ -1,72 +1,76 @@
 <html>
     <?php $title = 'Prueba Asignatura'; ?>
-    <?php $currentPage = 'agregarAsignatura'; ?>
+    <?php $currentPage = 'Prueba'; ?>
     <?php include('head.php'); ?>
     <?php include('nav-bar.php'); ?>
     <?php include('conexion.php'); ?>
-    
-<style>
-    *{
-  margin: 0;
-  padding: 0;
-}
+  
+    <?php
 
-ul{
-  list-style: none;
-}
-#menu li>a{
-  background-color:  #00162b;
-  color: white;
-  padding: 10px;
-  display: block;
-  text-decoration: none;
-  min-width: 100px;
-}
-#menu li>a:hover{
-  color: #000;
-  background-color: #eaeaea;
-}
-#menu>li{
-  float: left;
-  text-align:center
-}
-#menu>li>ul{
-  display: none;
-}
-#menu>li:hover>ul {
-  display:block;
-}
-</style>
- 
-    
+?>
 
-  <body>
-  <header class="row">
-    <nav class="col-12 bg-dark text-white py-3" >
-        <ul id="menu">
-          <li><a href="">Inicio</a></li>
-          <li><a href="">Cursos</a>
-            <ul>
-              <li><a href="">Frontend</a></li>
-              <li><a href="">Backend</a></li>
-              <li><a href="">Mobile</a></li>
-            </ul>  
-          </li>
-          <li><a href="">Tutoriales</a></li>
-          <li><a href="">Contacto</a></li>
-        </ul>
-      </nav>
-    </header>
-    
-  </body>
-  <main class="row p-4">
-        <form action="" class="row">
-                <?php
-                    session_start();
-                    $usuario = $_SESSION['username'];
-                    echo  "<h1>Bienvenido $usuario al menú de Docentes</h1>";
-                ?>
-        </form>
-</main>
+<div class="center">
+    <td>Usuarios:</td>
+        <select name="id_usuario" required>
+        <option name="idPregunta" selected hidden value="" required>Indique al Usuario</option>
+  <?php
+    $result = $con->query("select * FROM usertable");
+      while ($row = $result->fetch_assoc())
+        { 
+          echo "<option required value='".$row['id']."'>".$row['username']." </option>";           
+        }                                    
+  ?>
+        </select>
+    </td>
+</div>
+<button type="submit"  id="Enviar">Eliminar</button>     
+<a class="btn btn-primary" href="eliminar.php?id=<?php echo $usuario['username'];?>"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></a>
+
+<div class="container">
+       <div class="row">
+           <div class="col-lg-12">
+            <table id="tablaUsuarios" class="table-striped table-bordered" style="width:100%">
+                <thead class="text-center">
+                    <th>id</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Usuario</th>
+                    <th>Correo</th>
+                    <th>Contraseña</th>
+                    <th>codigo</th>
+                    <th>Estado</th>
+                    <th>Tipo Usuario</th>
+                </thead>
+                <tbody>
+                    <?php
+                    
+
+                        $sql ="SELECT * FROM usertable WHERE username = '$id'";
+                        $result = mysqli_query($con,$sql);
+                        while($usuario=mysqli_fetch_array($result))
+                        {
+                        
+                    ?>
+                    <tr>
+                        <td><?php echo $usuario['id']?></td>
+                        <td><?php echo $usuario['nombres']?></td>
+                        <td><?php echo $usuario['apellidos']?></td>
+                        <td><?php echo $usuario['username']?></td>
+                        <td><?php echo $usuario['email']?></td>
+                        <td><?php echo $usuario['password']?></td>
+                        <td><?php echo $usuario['code']?></td>
+                        <td><?php echo $usuario['status']?></td>
+                        <td><?php echo $usuario['tipo_usuario']?></td>
+                    </tr>
+                    <?php
+                        }
+                    ?>
+                </tbody>
+            </table>
+           </div>           
+       </div> 
+    </div>
+              
+
 
 </html>

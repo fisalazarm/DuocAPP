@@ -51,7 +51,7 @@ ul{
                 <li><a href="Reporte.php ">Todos los usuario</a></li>
                 <li><a href="signup-user.php">Registrar Usuario</a></li>
                 <li><a href="IngresoUsuarios.php">Cargar Usuarios</a></li>
-                <li><a href="">Eliminar Usuarios</a></li>              
+                <li><a href="eliminarUsuarios.php">Eliminar Usuarios</a></li>              
             </ul>  
         </li>          
         <li><a href="">Encuesta</a>
