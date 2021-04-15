@@ -53,7 +53,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                                 $result = $con->query("select * FROM asignatura");
                                 while ($row = $result->fetch_assoc())
                                     { 
-                                        echo "<option required value='".$row['id_clase']."'>".$row['nombre_clase']." </option>";
+                                        echo "<option required value='".$row['id_asignatura']."'>".$row['nombre_asignatura']." </option>";
                                     }
                                     
                             ?>
