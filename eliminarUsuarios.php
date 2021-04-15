@@ -8,8 +8,8 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
 
-
-    $sql = "DELETE FROM usertable WHERE id = 4";
+/*
+    $sql = "DELETE FROM usertable WHERE id = 4";*/
 ?>
 <style>
 table {
@@ -39,6 +39,29 @@ hr {
     border-top: 1px solid #eee;
 }
 </style>
+
+
+<form action="eliminar.php" method="post">
+        <input type="text" name="nuevo">
+        <input type="text" name="" placeholder="viejo">
+
+        <td>Usuario:</td>
+                    <select name="viejo" class="form-select form-select-lg mb-1" id="SelectPregunta" required>
+                        <option selected hidden value="" required>Indique la asignatura</option>
+                            <?php
+                                $result = $con->query("select * FROM usertable");
+                                while ($row = $result->fetch_assoc())
+                                    { 
+                                        echo "<option required value='".$row['nombres']."'>".$row['username']." </option>";
+                                    }                              
+                                    
+                            ?>
+                    </select>
+                </td>
+
+            <input type="submit" value="Actualizar">
+            
+    </form>
 
 <body>
     <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>

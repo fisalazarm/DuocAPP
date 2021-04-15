@@ -5,15 +5,43 @@
     <?php include('nav-bar.php'); ?>
     <?php include('conexion.php'); ?>
   
-    <?php
 
-?>
+<body>
 
+
+    <form action="eliminar.php" method="post">
+        <input type="text" name="nuevo">
+        <input type="text" name="" placeholder="viejo">
+
+        <td>Usuario:</td>
+                    <select name="viejo" class="form-select form-select-lg mb-1" id="SelectPregunta" required>
+                        <option selected hidden value="" required>Indique la asignatura</option>
+                            <?php
+                                $result = $con->query("select * FROM usertable");
+                                while ($row = $result->fetch_assoc())
+                                    { 
+                                        echo "<option required value='".$row['nombres']."'>".$row['nombres']." </option>";
+                                    }
+                                
+                                    
+                            ?>
+                            <div>
+                            <input type="text"value="">
+                            </div>
+                    </select>
+                </td>
+
+            <input type="submit" value="Actualizar">
+            
+    </form>
+
+
+<!--
 <div class="center">
     <td>Usuarios:</td>
         <select name="id_usuario" required>
         <option name="idPregunta" selected hidden value="" required>Indique al Usuario</option>
-  <?php
+  <?php/*
     $result = $con->query("select * FROM usertable");
       while ($row = $result->fetch_assoc())
         { 
@@ -71,6 +99,6 @@
        </div> 
     </div>
               
-
-
+-->
+</body>
 </html>
