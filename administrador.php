@@ -58,7 +58,7 @@ ul{
             <ul>
                 <li><a href="creacionPreguntas.php">Ingresar Preguntas</a></li>
                 <li><a href="eliminarPregunta.php">Eliminar Preguntas</a></li>
-                <li><a href=""> Pregutas Registradas</a></li>
+                <li><a href="preguntasRegistradas.php"> Pregutas Registradas</a></li>
                 <li><a href="agregarAsignatura.php"> Registrar Asignatura</a></li>
             </ul> 
           </li>

@@ -59,7 +59,7 @@ ul{
                 <?php
                     session_start();
                     $usuario = $_SESSION['username'];
-                    echo  "<h1>Bienvenido $usuario al menú de Docentes</h1>";
+                    echo  "<h1>Bienvenido $usuario al menú de Encuestas</h1>";
                 ?>
         </form>
 </main>

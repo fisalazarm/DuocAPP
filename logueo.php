@@ -30,6 +30,14 @@ else if($array['contar']>0 && $array['tipo_usuario']==2&& $array['status']=="ver
     $_SESSION['username'] = $usuario;
     header("location:docente.php");
 }
+else if($array['contar']>0 && $array['tipo_usuario']==3&& $array['status']=="verified"){
+    $_SESSION['username'] = $usuario;
+    header("location:docente.php");
+}
+else if($array['contar']>0 && $array['tipo_usuario']==4&& $array['status']=="verified"){
+    $_SESSION['username'] = $usuario;
+    header("location:docente.php");
+}
 else if($array['contar']>0 && $array['tipo_usuario']==2&&$array['status']=="notverified"){
     header("location:forgot-password.php");
 }{
