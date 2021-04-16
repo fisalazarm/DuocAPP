@@ -15,14 +15,14 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 <form action="eliminar.php" method="post">
 
-        <td>Usuario:</td>
-            <select name="viejo" class="form-select form-select-lg mb-1" id="SelectPregunta" required>
-                <option selected hidden value="" required>---- Usuario ----</option>
+        <td>Pregunta:</td>
+            <select name="idpregunta" class="form-select form-select-lg mb-1" id="SelectPregunta" required>
+                <option selected hidden value="" required>---- Pregunta ----</option>
                     <?php
-                        $result = $con->query("select * FROM usertable");
+                        $result = $con->query("select * FROM preguntas_predeterminadas");
                             while ($row = $result->fetch_assoc())
                             { 
-                                echo "<option required value='".$row['id']."'>".$row['username']." </option>";
+                                echo "<option required value='".$row['id_preguntas']."'>".$row['nombre_pregunta']." </option>";
                             }   
                     ?>
             </select>
