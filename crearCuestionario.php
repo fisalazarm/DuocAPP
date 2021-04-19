@@ -5,7 +5,6 @@
     <?php include('nav-bar.php'); ?>
     <?php include('conexion.php'); ?>
     <?php
-error_reporting(E_ALL ^ E_NOTICE);
     session_start();
     $usuario = $_SESSION['username'];
     
@@ -23,7 +22,8 @@ error_reporting(E_ALL ^ E_NOTICE);
         
         $con->query($insertar);
         
-   
+        
+        
     }
     
 ?>
@@ -40,12 +40,7 @@ error_reporting(E_ALL ^ E_NOTICE);
         <br>    
         <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
             <form action="crearCuestionario.php" method="POST" id="formCuestionario" class="form-md">
-            <td>
-            <td>Sección:</td>
-            <input type="text" name="codseccion" placeholder="Indique su sección" required>
-            </td>
-            <br>
-            <br>
+          
             <td>Asignatura:</td>
                     <select name="asignatura" class="form-select form-select-lg mb-1" id="SelectPregunta" required>
                         <option selected hidden value="" required>Indique la asignatura</option>
@@ -62,6 +57,19 @@ error_reporting(E_ALL ^ E_NOTICE);
 
                 <br>
                 <br>
+                <td>
+            <td>Sección:</td>
+            <?php  
+                $asig= $con->query("SELECT codigo_asignatura FROM asignatura WHERE id_asignatura = '$asignatura'");            
+                while ($a = $asig->fetch_assoc()) {
+                    
+                
+            ?>
+            <input type="text" name="codseccion" placeholder="Indique su sección"value ="<?php echo $a['codigo_asignatura'] ?>" required>
+            <?php } ?>
+            </td>
+            <br>
+            <br>
                 
                 <td>Pregunta N°1:</td>
                     <select name="pregunta1" class="form-select form-select-lg" id="SelectPregunta" required>
