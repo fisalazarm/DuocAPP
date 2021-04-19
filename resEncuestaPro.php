@@ -29,6 +29,7 @@
                     <th>Respuesta 2</th>
                     <th>Pregunta 2</th>
                     <th>Respuesta 3</th>
+                    <th>Comentario</th>
                     <th>Responsable</th>                    
                 </thead>
                 <tbody>
@@ -39,6 +40,7 @@
                                     en.pregunta1 as pre1, re.respuesta1 as re1, 
                                     en.pregunta2 as pre2, re.respuesta2 as re2,
                                     en.pregunta3 as pre3, re.respuesta3 as re3,
+                                    re.comentario as com,
                                     en.id_profesorfk as pro
                             FROM encuesta en
                             INNER JOIN respuesta_encuesta re ON en.codigo_encuesta = re.id_encuestafk
@@ -56,9 +58,10 @@
                         <td><?php echo $usuario['pre1']?></td>
                         <td><?php echo $usuario['re1']?></td>
                         <td><?php echo $usuario['pre2']?></td>
-                        <td><?php echo $usuario['re1']?></td>
+                        <td><?php echo $usuario['re2']?></td>
                         <td><?php echo $usuario['pre3']?></td>
-                        <td><?php echo $usuario['re1']?></td>
+                        <td><?php echo $usuario['re3']?></td>
+                        <td><?php echo $usuario['com']?></td>
                         <td><?php echo $usuario['pro']?></td>
                     </tr>
                     <?php

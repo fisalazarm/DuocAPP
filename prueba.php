@@ -66,7 +66,9 @@ error_reporting(E_ALL ^ E_NOTICE);
                     
                 
             ?>
-            <input type="text" name="codseccion" placeholder="Indique su sección"value ="<?php echo $a['pregunta1'] ?>" required>
+            <input type="text" name="codseccion" placeholder="Indique su sección"value ="<?php echo $a['codigo_asignatura'] ?>" required>
+                    
+
             <?php } ?>
             </td>
             <br>
