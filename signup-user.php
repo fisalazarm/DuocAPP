@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-4 offset-md-4 form">
                 <form action="signup-user.php" method="POST" autocomplete="">
-                    <h2 class="text-center">Formulario de Registro</h2>
+                    <h4 class="text-center">Formulario de Registro</h4>
                     <?php
                     if(count($errors) == 1){
                         ?>
@@ -38,6 +38,9 @@
                         <?php
                     }
                     ?>
+                      <div class="form-group">
+                        <input class="form-control" type="text" name="rut" placeholder="Rut" required >
+                    </div>
                      <div class="form-group">
                         <input class="form-control" type="text" name="nombre" placeholder="Nombres" required value="<?php echo $usuario ?>">
                     </div>
