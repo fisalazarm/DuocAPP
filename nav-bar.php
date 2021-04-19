@@ -13,7 +13,9 @@
                         <a href="responderEncuesta.php" class="nav-item nav-link active">Encuesta</a>
                     </div>
                     <div class="navbar-nav ml-auto">
-                    <a href="login-user.php" class="nav-item nav-link active">Acceder/Desconectar</a>
+                    <a href="login-user.php" class="nav-item nav-link active">Acceder</a>
+                    <a href="logout.php" class="nav-item nav-link active">Desconectar</a>
+
                     </div>
                 </div>
             </nav>
