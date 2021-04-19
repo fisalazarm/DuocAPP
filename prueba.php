@@ -41,7 +41,8 @@
     <td>Usuarios:</td>
         <select name="id_usuario" required>
         <option name="idPregunta" selected hidden value="" required>Indique al Usuario</option>
-  <?php/*
+  <?php
+  /*
     $result = $con->query("select * FROM usertable");
       while ($row = $result->fetch_assoc())
         { 

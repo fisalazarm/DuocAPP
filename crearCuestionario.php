@@ -50,16 +50,15 @@ error_reporting(E_ALL ^ E_NOTICE);
                     <select name="asignatura" class="form-select form-select-lg mb-1" id="SelectPregunta" required>
                         <option selected hidden value="" required>Indique la asignatura</option>
                             <?php
-                                $result = $con->query("select * FROM asignatura");
+                                $result = $con->query("select * FROM clases");
                                 while ($row = $result->fetch_assoc())
                                     { 
-                                        echo "<option required value='".$row['id_asignatura']."'>".$row['nombre_asignatura']." </option>";
+                                        echo "<option required value='".$row['id_clase']."'>".$row['nombre_clase']." </option>";
                                     }
                                     
                             ?>
                     </select>
                 </td>
-
                 <br>
                 <br>
                 
@@ -121,52 +120,6 @@ error_reporting(E_ALL ^ E_NOTICE);
             <button id="Enviar" type="submit"  onclick="aviso()" value="add">Agregar Encuesta</button>
             </div>
             </form>
-
-            <div class="text-center">
-            
-            <div class="container">
-       <div class="row">
-           <div class="col-lg-12">
-            <table id="tablaUsuarios" class="table-striped table-bordered" style="width:100%">
-                <thead class="text-center">
-                    <th>Codigo Encuesta</th>
-                    <th>Asignatura </th>
-                    <th>Sección</th>
-                    <th>Responsable</th>                    
-                </thead>
-                <tbody>
-                    <?php
-                        $sql ="SELECT en.codigo_encuesta as codigo,
-                                    asi.nombre_Asignatura as asig,
-                                    en.seccion as seccion,
-                                    en.id_profesorfk as pro
-                            FROM encuesta en
-                            join asignatura asi on asi.id_asignatura = en.id_clasefk
-                            WHERE en.id_profesorfk = '$usuario' and en.dia_encuesta = CURDATE()";
-                        $result = mysqli_query($con,$sql);
-                        while($usuario=mysqli_fetch_array($result))
-                        {
-                        
-                    ?>
-                    <tr>
-                        <td><?php echo $usuario['codigo']?></td>
-                        <td><?php echo $usuario['asig']?></td>
-                        <td><?php echo $usuario['seccion']?></td>
-                        <td><?php echo $usuario['pro']?></td>
-                    </tr>
-                    <?php
-                        }
-                    ?>
-                </tbody>
-            </table>
-            
-           </div>
-       </div> 
-    </div>
-                                                                                                    
-            </div>
-
         </div>
-
     </body>
 </html>
