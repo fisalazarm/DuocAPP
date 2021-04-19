@@ -5,6 +5,7 @@
     <?php include('nav-bar.php'); ?>
     <?php include('conexion.php'); ?>
     <?php
+error_reporting(E_ALL ^ E_NOTICE);
     session_start();
     $usuario = $_SESSION['username'];
     
