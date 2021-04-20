@@ -16,12 +16,10 @@ error_reporting(E_ALL ^ E_NOTICE);
         $pregAgre2 = $_POST["pregunta2"];
         $pregAgre3 = $_POST["pregunta3"];
         $seccion = $_POST["codseccion"];
-        
-        
 
         $numRandom ="SELECT LPAD(FLOOR(RAND() * 999999.99), 6, '0') FROM DUAL";
         $insertar ="INSERT INTO encuesta (codigo_encuesta,id_clasefk,seccion,pregunta1,pregunta2,pregunta3,dia_encuesta,hora_encuesta,id_profesorfk) 
-        VALUES (FLOOR(1+ RAND() * 999999),'$asignatura',$seccion,'$pregAgre1','$pregAgre2','$pregAgre3',curdate(),curtime(),'$usuario')";
+        VALUES (FLOOR(1+ RAND() * 999999),'$asignatura','$seccion','$pregAgre1','$pregAgre2','$pregAgre3',curdate(),curtime(),'$usuario')";
         
         $con->query($insertar);
         
@@ -36,30 +34,31 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 ?>
 
-<body>
-    <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
-        <button onclick="history.go(-1);" id="Enviar" style="font-size: 25px">Volver </button>
-    </div>
+    <body>
+        <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
+            <button onclick="history.go(-1);" id="Enviar" style="font-size: 25px">Volver </button>
+        </div>
         <br>    
-        
-    <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
-        <form action="crearCuestionario.php" method="POST" id="formCuestionario" class="form-md">
+        <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
+            <form action="crearCuestionario.php" method="POST" id="formCuestionario" class="form-md">
             <div class="form-group col-12 col-lg-6">
-                <td>Asignatura:</td>
+
+            <td>Asignatura:</td>
                     <select name="asignatura" class="form-select form-select-lg mb-1" id="SelectPregunta" required>
-                        <option selected name="cod"  value="" required>Indique la asignatura</option>
+                        <option selected hidden value="" required>Indique la asignatura</option>
                             <?php
                                 $result = $con->query("select * FROM asignatura");
-                                    while ($row = $result->fetch_assoc())
-                                        { 
-                                            echo "<option required value='".$row['id_asignatura']."'>".$row['nombre_asignatura'].' '.$row['codigo_asignatura']." </option>";
-                                        }
-                                        
+                                while ($row = $result->fetch_assoc())
+                                    { 
+                                        echo "<option required value='".$row['id_asignatura']."'>".$row['nombre_asignatura']." </option>";
+                                    }
+                                    
                             ?>
                     </select>
                 </td>
-            </div>     
-            <div class="form-group col-12 col-lg-6">
+                </div>
+                            
+                <div class="form-group col-12 col-lg-6">
                 <td>
                     <td>Sección:</td>
                     <input type="text" name="codseccion" placeholder="Indique su sección" required>    
@@ -79,7 +78,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                     </select>
                 </td>
             </div>
-            <div class="form-group col-12 col-lg-6">
+                <div class="form-group col-12 col-lg-6">
                 <td>Pregunta N°2:</td>
                     <select name="pregunta2" id="SelectPregunta" required>
                         <option selected hidden value="" required>Seleccione la pregunta</option>
@@ -108,19 +107,26 @@ error_reporting(E_ALL ^ E_NOTICE);
                     </select>
                 </td>
             </div>            
-                <script>
-                    function aviso() {
-                        alert("La encuesta fue creada exitosamente");
-                    }
-                </script>
+            <br>
+            <br>
+            <script>
+                function aviso() {
+                    alert("La encuesta fue creada exitosamente");
+                }
+            </script>
            
 
-           <div class="form-group col-12 col-lg-6">            
-                <button id="Enviar" type="submit"  onclick="aviso()" value="add">Agregar Encuesta</button>
+            <div class="text-center">
+            
+            <button id="Enviar" type="submit"  onclick="aviso()" value="add">Agregar Encuesta</button>
             </div>
-        </form>           
-    </div>
-    <div class="form-group col-12 col-lg-6">
+            </form>
+
+                                                                                                    
+            </div>
+
+        </div>
+        <div class="form-group col-12 col-lg-6">
     <table id="tablaUsuarios" class="table-striped table-bordered" style="width:100%">
                 <thead class="text-center">
                     <th>Codigo Encuesta</th>
@@ -155,6 +161,5 @@ error_reporting(E_ALL ^ E_NOTICE);
             </table>
     </div>
 
-
-</body>
+    </body>
 </html>
