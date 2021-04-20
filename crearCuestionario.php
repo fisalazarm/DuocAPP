@@ -41,7 +41,8 @@ error_reporting(E_ALL ^ E_NOTICE);
         <br>    
         <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
             <form action="crearCuestionario.php" method="POST" id="formCuestionario" class="form-md">
-          
+            <div class="form-group col-12 col-lg-6">
+
             <td>Asignatura:</td>
                     <select name="asignatura" class="form-select form-select-lg mb-1" id="SelectPregunta" required>
                         <option selected hidden value="" required>Indique la asignatura</option>
@@ -55,25 +56,15 @@ error_reporting(E_ALL ^ E_NOTICE);
                             ?>
                     </select>
                 </td>
-
-                <br>
-                <br>
+                </div>
+                            
+                <div class="form-group col-12 col-lg-6">
                 <td>
-            <td>Sección:</td>
-            <?php  
-                $asig= $con->query("SELECT codigo_asignatura FROM asignatura WHERE id_asignatura = '$asignatura'");            
-                while ($a = $asig->fetch_assoc()) {
-                    
-                
-            ?>
-            <input type="text" name="codseccion" placeholder="Indique su sección"value ="<?php echo $a['codigo_asignatura'] ?>" required>
-                    
-
-            <?php } ?>
-            </td>
-            <br>
-            <br>
-                
+                    <td>Sección:</td>
+                    <input type="text" name="codseccion" placeholder="Indique su sección" required>    
+                </td>
+            </div>
+            <div class="form-group col-12 col-lg-6">
                 <td>Pregunta N°1:</td>
                     <select name="pregunta1" class="form-select form-select-lg" id="SelectPregunta" required>
                         <option selected hidden value="" required>Seleccione la pregunta</option>
@@ -82,13 +73,12 @@ error_reporting(E_ALL ^ E_NOTICE);
                                 while ($row = $result->fetch_assoc())
                                     { 
                                         echo "<option required value='".$row['nombre_pregunta']."'>".$row['nombre_pregunta']." </option>";
-                                    }
-                                    
+                                    }                                    
                             ?>
                     </select>
                 </td>
-                <br>
-                <br>
+            </div>
+                <div class="form-group col-12 col-lg-6">
                 <td>Pregunta N°2:</td>
                     <select name="pregunta2" id="SelectPregunta" required>
                         <option selected hidden value="" required>Seleccione la pregunta</option>
@@ -102,8 +92,8 @@ error_reporting(E_ALL ^ E_NOTICE);
                             ?>
                     </select>
                 </td>
-                <br>
-                <br>
+            </div>
+            <div class="form-group col-12 col-lg-6">
                 <td>Pregunta N°3:</td>
                     <select name="pregunta3" id="SelectPregunta" required>
                         <option selected hidden value="" required>Seleccione la pregunta</option>
@@ -113,11 +103,10 @@ error_reporting(E_ALL ^ E_NOTICE);
                                     { 
                                         echo "<option required value='".$row['nombre_pregunta']."'>".$row['nombre_pregunta']." </option>";
                                     }
-                                    
                             ?>
                     </select>
                 </td>
-            <td>
+            </div>            
             <br>
             <br>
             <script>
@@ -133,12 +122,12 @@ error_reporting(E_ALL ^ E_NOTICE);
             </div>
             </form>
 
-            <div class="text-center">
-            
-            <div class="container">
-       <div class="row">
-           <div class="col-lg-12">
-            <table id="tablaUsuarios" class="table-striped table-bordered" style="width:100%">
+                                                                                                    
+            </div>
+
+        </div>
+        <div class="form-group col-12 col-lg-6">
+    <table id="tablaUsuarios" class="table-striped table-bordered" style="width:100%">
                 <thead class="text-center">
                     <th>Codigo Encuesta</th>
                     <th>Asignatura </th>
@@ -171,14 +160,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                     ?>
                 </tbody>
             </table>
-            
-           </div>
-       </div> 
     </div>
-                                                                                                    
-            </div>
-
-        </div>
 
     </body>
 </html>
