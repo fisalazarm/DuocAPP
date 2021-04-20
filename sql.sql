@@ -284,3 +284,60 @@ SELECT DISTINCTROW codAsignatura,nombreAsignatura,
 FROM plandeestudio
 
 
+SELECT nombre_asignatura,
+		SUBSTR(CONCAT(nombre_asignatura,' ',codigo_asignatura),-7,7),
+		codigo_asignatura
+FROM `asignatura` 
+
+
+<?php  /*
+                $asig= $con->query("SELECT codigo_asignatura FROM asignatura WHERE id_asignatura = '$asignatura'");            
+                while ($a = $asig->fetch_assoc()) {
+                    
+                */
+            ?>
+
+/******/
+ <div class="text-center">
+            
+            <div class="container">
+       <div class="row">
+       <div class="form-group col-12 col-lg-6">
+            <table id="tablaUsuarios" class="table-striped table-bordered" style="width:100%">
+                <thead class="text-center">
+                    <th>Codigo Encuesta</th>
+                    <th>Asignatura </th>
+                    <th>Sección</th>
+                    <th>Responsable</th>                    
+                </thead>
+                <tbody>
+                    <?php
+                        $sql ="SELECT en.codigo_encuesta as codigo,
+                                    asi.nombre_Asignatura as asig,
+                                    en.seccion as seccion,
+                                    en.id_profesorfk as pro
+                            FROM encuesta en
+                            join asignatura asi on asi.id_asignatura = en.id_clasefk
+                            WHERE en.id_profesorfk = '$usuario' and en.dia_encuesta = CURDATE()";
+                        $result = mysqli_query($con,$sql);
+                        while($usuario=mysqli_fetch_array($result))
+                        {
+                        
+                    ?>
+                    <tr>
+                        <td><?php echo $usuario['codigo']?></td>
+                        <td><?php echo $usuario['asig']?></td>
+                        <td><?php echo $usuario['seccion']?></td>
+                        <td><?php echo $usuario['pro']?></td>
+                    </tr>
+                    <?php
+                        }
+                    ?>
+                </tbody>
+            </table>
+            
+           </div>
+       </div> 
+    </div>
+                                                                                                    
+            </div>
