@@ -36,7 +36,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 
     <body>
         <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
-            <button onclick="history.go(-1);" id="Enviar" style="font-size: 25px">Volver </button>
+            <button onclick="history.go(-2);" id="Enviar" style="font-size: 25px">Volver </button>
         </div>
         <br>    
         <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
@@ -159,6 +159,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                         {
                         
                     ?>
+                    <br>
                     <tr>
                         <td><?php echo $usuario['codigo']?></td>
                         <td><?php echo $usuario['asig']?></td>

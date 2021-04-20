@@ -21,7 +21,6 @@
                     <th>Apellidos</th>
                     <th>Usuario</th>
                     <th>Correo</th>
-                    <th>Contraseña</th>
                     <th>codigo</th>
                     <th>Estado</th>
                     <th>Tipo Usuario</th>
@@ -40,7 +39,6 @@
                         <td><?php echo $usuario['apellidos']?></td>
                         <td><?php echo $usuario['username']?></td>
                         <td><?php echo $usuario['email']?></td>
-                        <td><?php echo $usuario['password']?></td>
                         <td><?php echo $usuario['code']?></td>
                         <td><?php echo $usuario['status']?></td>
                         <td><?php echo $usuario['tipo_usuario']?></td>
