@@ -91,5 +91,39 @@ error_reporting(E_ALL ^ E_NOTICE);
             </form>
         </article>
     </main>
+    
+    <div>
+    <h2>Cargar todas las Asignaturas</h2>
+    <?php
+        $insertar=  "INSERT INTO `asignatura`(`codigo_asignatura`, `nombre_asignatura`, `id_escuela`) 
+                    SELECT DISTINCTROW codAsignatura,nombreAsignatura,
+                       CASE WHEN escuela = 'Diseño' THEN 1
+                            WHEN escuela = 'Informática y Telecomunicaciones' THEN 2 
+                            WHEN escuela = 'Administración y Negocios' THEN 3
+                            WHEN escuela = 'Extracurricular Deportes Ancla' THEN 4
+                            WHEN escuela = 'Extracurricular Selecciones Deporte' THEN 5
+                            WHEN escuela = 'Extracurricular Asuntos Estudiantiles' THEN 6
+                            WHEN escuela = 'Programa de Emprendimiento' THEN 7
+                            WHEN escuela = 'Programa de Etica' THEN 8
+                            WHEN escuela = 'Programa de Inglés' THEN 9
+                            WHEN escuela = 'Programa de Matemáticas' THEN 10
+                            WHEN escuela = 'Comunicación' THEN 11
+                            WHEN escuela = 'Programa de Formación Cristiana' THEN 12
+                            WHEN escuela = 'Programa de Lenguaje y Comunicación' THEN 13
+                            WHEN escuela = 'Construcción' THEN 14
+                            WHEN escuela = 'Escuela' THEN 15
+                            WHEN escuela = ' ' THEN 0
+                            END
+                    FROM plandeestudio";
+                    $con->query($insertar);
+    ?>
+
+    <input type="submit" value="Cargar Asignaturas">
+
+    </div>
+
+   
+    
+
     </body>
 </html>
