@@ -12,8 +12,9 @@ error_reporting(E_ALL ^ E_NOTICE);
     $sql = "DELETE FROM usertable WHERE id = 4";*/
 ?>
 
-
+<body>
 <form action="eliminar.php" method="post">
+    <div class="form-group col-12 col-lg-6">
 
         <td>Usuario:</td>
             <select name="viejo" class="form-select form-select-lg mb-1" id="SelectPregunta" required>
@@ -29,15 +30,16 @@ error_reporting(E_ALL ^ E_NOTICE);
         
 
             <input type="submit" value="Eliminar">
-            
-    </form>
+    </div>    
+</form>
 
-<body>
+<div class="form-group col-12 col-lg-6">
+
     <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
             <button onclick="history.go(-1);" id="Enviar" style="font-size: 25px">Volver </button>
     </div>
-
-    <div class="main-wrapper">
+</div>
+    
 <br>
 
 

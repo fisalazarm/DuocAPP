@@ -57,42 +57,53 @@ error_reporting(E_ALL ^ E_NOTICE);
     
 ?>
     <body>
+    
     <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
-            <button onclick="history.go(-1);" id="Enviar" style="font-size: 25px">Volver </button>
-        </div>
+        <button onclick="history.go(-1);" id="Enviar" style="font-size: 25px">Volver </button>
+    </div>
         <br>
-        <div class="container-md justify-content-center" style="background-color:white" text-center py-5>
-            <h2> Creación de Preguntas para las encuestas</h2>
-            <br><br>
-            <div>
-                <form action="creacionPreguntas.php" method="POST" id="form" class="form-md">
-                    <div class="form-group">
-                        <td>Pregunta:</td>
-                        <td><input type="text" placeholder="Escriba la Pregunta aquí" name="pregunta_predeterminada"  id="pregunta"  title="La pregunta solo debe contener signos como ¿?, letras y números del 1 al 5" required></td>
-                    </div>
-                        <td>
-                            <td>Tipo Pregunta:</td>
-                            <select name="nombre_tipo_pregunta" required>
-                                <option name="idPregunta" selected hidden value="" required>Seleccione el Tipo</option>
-                                <?php
-                                    $result = $con->query("select * FROM tipo_pregunta");
+        
+            <
+            <br>
+            <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
+           
+                <form action="creacionPreguntas.php" method="POST" id="form" >
+                <h3> Creación de Preguntas</h3>
+         
+                
+                <div class="form-group col-12 col-lg-6">
+                    <td>Pregunta:</td>
+                        <input type="text"  placeholder="Escriba la Pregunta aquí" name="pregunta_predeterminada"  id="pregunta"  title="La pregunta solo debe contener signos como ¿?, letras y números del 1 al 5" required>
+                    </td>                    
+                </div>
+                <div class="form-group col-12 col-lg-6">                
+                    <td>Tipo Pregunta:</td>
+                        <select name="nombre_tipo_pregunta" required>
+                            <option name="idPregunta" selected hidden value="" required>Seleccione el Tipo</option>
+                            <?php
+                                $result = $con->query("select * FROM tipo_pregunta");
                                     while ($row = $result->fetch_assoc())
                                     { 
                                         echo "<option required value='".$row['id_tipo_pregunta']."'>".$row['nombre_tipo_pregunta']." </option>";           
                                     }                                    
-                                ?>
-                            </select>
-                        </td>
-                    </div>
+                            ?>
+                        </select>
+                    </td>
+                </div>
 
-                    <script>
-                        function aviso() {
-                            alert("Pregunta agregada");
-                        }
-                    </script>
-                    <button type="submit" id="Enviar" onclick="aviso()" value="add">Agregar Pregunta Predeterminada</button>
+
+                <script>
+                    function aviso() {
+                        alert("Pregunta agregada");
+                    }
+                </script>
+
+                <div class="form-group col-12 col-lg-6">
+
+                    <button type="submit" id="Enviar" onclick="aviso()" value="add">Agregar Pregunta</button>
+                </div>
                 </form>
             </div>
-        </div>
+            
     </body>
 </html>
