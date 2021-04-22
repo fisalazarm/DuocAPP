@@ -40,7 +40,17 @@ else if($array['contar']>0 && $array['tipo_usuario']==4&& $array['status']=="ver
 }
 else if($array['contar']>0 && $array['tipo_usuario']==2&&$array['status']=="notverified"){
     header("location:forgot-password.php");
-}{
+}
+else if($array['contar']>0 && $array['tipo_usuario']==1&&$array['status']=="notverified"){
+    header("location:forgot-password.php");
+}
+else if($array['contar']>0 && $array['tipo_usuario']==3&&$array['status']=="notverified"){
+    header("location:forgot-password.php");
+}
+else if($array['contar']>0 && $array['tipo_usuario']==4&&$array['status']=="notverified"){
+    header("location:forgot-password.php");
+}
+{
 
     //echo "<script> Alert('Datos Incorrectos'); header(location:InicioSesion.php) </script>";
      echo  " Datos incorrectos";
