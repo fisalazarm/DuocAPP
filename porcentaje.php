@@ -14,7 +14,7 @@
 <form action="porcentaje.php" method="POST" id="form" class="form-md">
 
     <div class="form-group col-12 col-lg-6">
-                    <label>Escuela:</label>
+                    <label>Encuesta:</label>
                     <select name="codigo_encuesta" required>
                         <option name="idPregunta" selected hidden value="" required>seleccione la Encuesta</option>
                             <?php
