@@ -345,3 +345,89 @@ SELECT COUNT(id_encuestafk),
 from respuesta_encuesta
 WHERE id_encuestafk = 564342
 
+cantidad en reportes
+
+SELECT 'Respuesta 1 muy desacuerdos' as 'Cantidad de respuestas', COUNT(respuesta1) as 'CANTIDAD'
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta1=1
+union ALL
+SELECT 'Respuesta 1 muy desacuerdos', COUNT(respuesta1)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta1=2
+union ALL
+SELECT 'Respuesta 1 Neutro', COUNT(respuesta1)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta1=3
+union ALL
+SELECT 'Respuesta 1 Acuerdos', COUNT(respuesta1)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta1=4
+union ALL
+SELECT 'Respuesta 1 muy Acuerdos', COUNT(respuesta1)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta1=5
+
+
+
+
+/**/
+
+SELECT 'Respuesta 1 muy desacuerdos' as 'RESPUESTAS', COUNT(respuesta1) as 'CANTIDAD'
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta1=1
+union ALL
+SELECT 'Respuesta 1 muy desacuerdos', COUNT(respuesta1)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta1=2
+union ALL
+SELECT 'Respuesta 1 Neutro', COUNT(respuesta1)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta1=3
+union ALL
+SELECT 'Respuesta 1 Acuerdos', COUNT(respuesta1)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta1=4
+union ALL
+SELECT 'Respuesta 1 muy Acuerdos', COUNT(respuesta1)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta1=5/*respuesta1 fin*/
+union ALL
+SELECT 'Respuesta 2 Neutro', COUNT(respuesta2)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta2=1
+union ALL
+SELECT 'Respuesta 2 Acuerdos', COUNT(respuesta2)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta2=2
+union ALL
+SELECT 'Respuesta 2 muy Acuerdos', COUNT(respuesta2)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta2=3
+union ALL
+SELECT 'Respuesta 2 muy Acuerdos', COUNT(respuesta2)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta2=4
+union ALL
+SELECT 'Respuesta 2 muy Acuerdos', COUNT(respuesta2)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta2=5/*respuesta1 fin*//*respuesta2 fin*/
+union ALL
+SELECT 'Respuesta 3 Acuerdos', COUNT(respuesta3)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta3=1
+union ALL
+SELECT 'Respuesta 3 Acuerdos', COUNT(respuesta3)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta3=2
+union ALL
+SELECT 'Respuesta 3 muy Acuerdos', COUNT(respuesta3)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta3=3
+union ALL
+SELECT 'Respuesta 2 muy Acuerdos', COUNT(respuesta3)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta3=4
+union ALL
+SELECT 'Respuesta 2 muy Acuerdos', COUNT(respuesta3)
+FROM  respuesta_encuesta
+WHERE id_encuestafk=811629 AND respuesta3=5/*respuesta3 fin*/
