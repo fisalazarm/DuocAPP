@@ -95,7 +95,7 @@ error_reporting(E_ALL ^ E_NOTICE);
     <div>
     <h2>Cargar todas las Asignaturas</h2>
     <?php
-        $insertar=  "INSERT INTO `asignatura`(`codigo_asignatura`, `nombre_asignatura`, `id_escuela`) 
+        $insertar=  "INSERT INTO `asignatura`(`codigo_asignatura`, `nombre_asignatura`, `id_escuela`, `rutDocente`) 
                     SELECT DISTINCTROW codAsignatura,nombreAsignatura,
                        CASE WHEN escuela = 'Diseño' THEN 1
                             WHEN escuela = 'Informática y Telecomunicaciones' THEN 2 
@@ -118,7 +118,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                     $con->query($insertar);
     ?>
 
-    <input type="submit" value="Cargar Asignaturas">
+    <input type="submit" id="Enviar" value="Cargar Asignaturas">
 
     </div>
 
