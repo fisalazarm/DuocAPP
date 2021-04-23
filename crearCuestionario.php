@@ -47,12 +47,10 @@ error_reporting(E_ALL ^ E_NOTICE);
                     <select name="asignatura" class="form-select form-select-lg mb-1" id="SelectPregunta" required>
                         <option selected hidden value="" required>Indique la asignatura</option>
                             <?php
-                                $result = $con->query("select * FROM asignatura inner join plandeestudio ON asignatura.codigo_asignatura = plandeestudio.codAsignatura
-                                                                                         left join usertable on usertable.rut_usuario = plandeestudio.rutDocente
-                                                                                         ");
+                                $result = $con->query("select * FROM asignatura ORDER BY nombre_Asignatura ASC");
                                 while ($row = $result->fetch_assoc())
                                     { 
-                                        echo "<option required value='".$row['id_asignatura']."'>".$row['nombre_asignatura']." + ".$row['seccion']." </option>";
+                                        echo "<option required value='".$row['id_asignatura']."'>".$row['nombre_asignatura']." </option>";
                                     }
                                     
                             ?>
