@@ -6,10 +6,8 @@
 <?php include('conexion.php'); ?>
 
 <body>
-    <?php
-    
-
-    ?>
+   
+   
 </body>
 
 </html> 
