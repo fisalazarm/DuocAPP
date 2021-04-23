@@ -118,7 +118,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                     $con->query($insertar);
     ?>
 
-    <input type="submit" value="Cargar Asignaturas">
+    <input type="submit" id="Enviar" value="Cargar Asignaturas">
 
     </div>
 

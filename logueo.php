@@ -39,21 +39,30 @@ else if($array['contar']>0 && $array['tipo_usuario']==4&& $array['status']=="ver
     header("location:docente.php");
 }
 else if($array['contar']>0 && $array['tipo_usuario']==2&&$array['status']=="notverified"){
-    header("location:forgot-password.php");
+    $info = "Aún no has verificado tu correo - $usuario";
+    $_SESSION['info'] = $info;
+    header('location: user-otp.php');
 }
 else if($array['contar']>0 && $array['tipo_usuario']==1&&$array['status']=="notverified"){
-    header("location:forgot-password.php");
+    $info = "Aún no has verificado tu correo - $usuario";
+    $_SESSION['info'] = $info;
+    header('location: user-otp.php');
 }
 else if($array['contar']>0 && $array['tipo_usuario']==3&&$array['status']=="notverified"){
-    header("location:forgot-password.php");
+    $info = "Aún no has verificado tu correo - $usuario";
+    $_SESSION['info'] = $info;
+    header('location: user-otp.php');
 }
 else if($array['contar']>0 && $array['tipo_usuario']==4&&$array['status']=="notverified"){
-    header("location:forgot-password.php");
+    $info = "Aún no has verificado tu correo - $usuario";
+    $_SESSION['info'] = $info;
+    header('location: user-otp.php');
 }
+else
 {
 
     //echo "<script> Alert('Datos Incorrectos'); header(location:InicioSesion.php) </script>";
-     echo  " Datos incorrectos";
+    echo  " Datos incorrectos";
 }
 
 ?>
