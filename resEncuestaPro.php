@@ -37,9 +37,27 @@
                         $sql ="SELECT en.codigo_encuesta as codigo, 
                                     asi.nombre_Asignatura as asig,
                                     en.seccion as seccion, 
-                                    en.pregunta1 as pre1, re.respuesta1 as re1, 
-                                    en.pregunta2 as pre2, re.respuesta2 as re2,
-                                    en.pregunta3 as pre3, re.respuesta3 as re3,
+                                    en.pregunta1 as pre1, 
+                                       CASE WHEN re.respuesta1 = 1 THEN 'Muy Desacuerdo' 
+                                            WHEN re.respuesta1 = 2 THEN 'En Desacuerdo' 
+                                            WHEN re.respuesta1 = 3 THEN 'Neutro' 
+                                            WHEN re.respuesta1 = 4 THEN 'De Acuerdo'  
+                                            WHEN re.respuesta1 = 5 THEN 'Muy Acuerdo' 
+                                            WHEN re.respuesta1 = 0 THEN 'Sin Responder'  end as re1, 
+                                    en.pregunta2 as pre2, 
+                                       CASE WHEN re.respuesta2 = 1 THEN 'Muy Desacuerdo' 
+                                            WHEN re.respuesta2 = 2 THEN 'En Desacuerdo' 
+                                            WHEN re.respuesta2 = 3 THEN 'Neutro' 
+                                            WHEN re.respuesta2 = 4 THEN 'De Acuerdo'  
+                                            WHEN re.respuesta2 = 5 THEN 'Muy Acuerdo' 
+                                            WHEN re.respuesta1 = 0 THEN 'Sin Responder'   end as re2,
+                                    en.pregunta3 as pre3, 
+                                       CASE WHEN re.respuesta3 = 1 THEN 'Muy Desacuerdo' 
+                                            WHEN re.respuesta3 = 2 THEN 'En Desacuerdo' 
+                                            WHEN re.respuesta3 = 3 THEN 'Neutro' 
+                                            WHEN re.respuesta3 = 4 THEN 'De Acuerdo'  
+                                            WHEN re.respuesta3 = 5 THEN 'Muy Acuerdo' 
+                                            WHEN re.respuesta1 = 0 THEN 'Sin Responder'   end as re3,
                                     re.comentario as com,
                                     en.id_profesorfk as pro
                             FROM encuesta en
@@ -69,6 +87,7 @@
                     ?>
                 </tbody>
             </table>
+            
             
            </div>
        </div> 

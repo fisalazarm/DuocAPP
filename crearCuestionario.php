@@ -47,7 +47,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                     <select name="asignatura" class="form-select form-select-lg mb-1" id="SelectPregunta" required>
                         <option selected hidden value="" required>Indique la asignatura</option>
                             <?php
-                                $result = $con->query("select * FROM asignatura");
+                                $result = $con->query("select * FROM asignatura ORDER BY nombre_Asignatura ASC");
                                 while ($row = $result->fetch_assoc())
                                     { 
                                         echo "<option required value='".$row['id_asignatura']."'>".$row['nombre_asignatura']." </option>";

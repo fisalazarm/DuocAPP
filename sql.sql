@@ -321,3 +321,27 @@ SELECT id_encuestafk,
          CASE WHEN respuesta1 = 5 THEN COUNT(respuesta1)end as 'Muy Acuerdo' 
 FROM respuesta_encuesta
 WHERE id_encuestafk = 564342
+
+
+
+
+/*reportes*/
+
+funcionan
+
+SELECT COUNT(id_encuestafk),
+		CASE WHEN  respuesta1 = 5 THEN  respuesta1 end
+from respuesta_encuesta
+WHERE id_encuestafk = 564342
+
+
+SELECT COUNT(id_encuestafk),
+		CASE WHEN  respuesta2 = 4 THEN  respuesta2 end
+from respuesta_encuesta
+WHERE id_encuestafk = 564342
+
+SELECT COUNT(id_encuestafk),
+		CASE WHEN  respuesta3 = 5 THEN  respuesta3 end
+from respuesta_encuesta
+WHERE id_encuestafk = 564342
+
