@@ -52,7 +52,7 @@
                     ?>
                         <div class="form-group col-12 col-lg-6">
 
-                    <label >Total Respuestas</label>
+                    <label >Cantidad Respuestas de Alumnos</label>
                     <input type="text" value="<?php echo $cons['cant']?>">
                     </div>
                     <?php } ?>
@@ -76,7 +76,7 @@
                         FROM  respuesta_encuesta
                         WHERE id_encuestafk='$cod' AND respuesta1=1
                         union ALL
-                        SELECT 'Respuesta 1 muy desacuerdos', COUNT(respuesta1),
+                        SELECT 'Respuesta 1  desacuerdos', COUNT(respuesta1),
                         id_encuestafk
                         FROM  respuesta_encuesta
                         WHERE id_encuestafk='$cod' AND respuesta1=2
