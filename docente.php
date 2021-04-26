@@ -49,6 +49,8 @@ ul{
         <ul id="menu">
             <li><a href="crearCuestionario.php">Crear Encuesta</a></li>
             <li><a href="resEncuestaPro.php ">Ver resultado de encuestas</a></li>
+            <li><a href="reporteEncuesta.php ">Reporte</a></li>
+            
         </ul>
       </nav>
     </header>
