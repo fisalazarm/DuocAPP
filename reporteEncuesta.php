@@ -1,5 +1,5 @@
 <html>
-<?php $title = 'Reportes de Usuarios Regitrados'; ?>
+<?php $title = 'Reportes de Encuestas'; ?>
 <?php $currentPage = 'Reportes'; ?>
 <?php include('head.php'); ?>
 <?php include('nav-bar.php'); ?>
@@ -8,6 +8,8 @@
         error_reporting(E_ALL ^ E_NOTICE);
         session_start();
         $usuario = $_SESSION['username'];
+        $cod=$_POST["codigo_encuesta"];
+
 ?>
 <body>
 <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
@@ -36,7 +38,24 @@
                     </select>
                     <input type="submit" value="Aceptar">
                     
+                    
  </div>
+ 
+
+ <?php
+                        $consulta="SELECT COUNT(id_encuestafk) AS cant 
+                                    FROM respuesta_encuesta 
+                                    WHERE id_encuestafk='$cod'";
+                         $consu = mysqli_query($con,$consulta);
+                         while($cons=mysqli_fetch_array($consu))
+                         {
+                    ?>
+                        <div class="form-group col-12 col-lg-6">
+
+                    <label >Total Respuestas</label>
+                    <input type="text" value="<?php echo $cons['cant']?>">
+                    </div>
+                    <?php } ?>
 
 <div class="container">
        <div class="row">
@@ -45,13 +64,13 @@
                 <thead class="text-center">
                     <th>Respuestas</th>
                     <th>Cantidad </th>
-                    <th>código Encuesta</th>                  
+                    <th>código Encuesta</th> 
+                    <th>código Encuesta</th> 
                 </thead>
                 <tbody>
                     <?php
                                         error_reporting(E_ALL ^ E_NOTICE);
 
-                        $cod=$_POST["codigo_encuesta"];
                         $sql ="SELECT 'Respuesta 1 muy desacuerdos' as 'RESPUESTAS', COUNT(respuesta1) as 'CANTIDAD',
                         id_encuestafk
                         FROM  respuesta_encuesta
