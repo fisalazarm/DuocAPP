@@ -35,7 +35,7 @@ $codigo=$_POST['codigo_encuesta'];
                 
 </div>
 <?php
-$result = $con->query("SELECT * FROM respuesta_encuesta WHERE id_encuestafk='$codigo'");
+$result = $con->query("SELECT * FROM respuesta_encuesta WHERE id_encuestafk=791394");
 
 ?>
 
@@ -54,11 +54,11 @@ google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
 
     var data = google.visualization.arrayToDataTable([
-      ['Respuesta1', 'Respuesta1'],
+      ['Respuesta1', 'Respuesta2'],
       <?php
       if($result->num_rows > 0){
           while($row = $result->fetch_assoc()){
-            echo "['".$row['respuesta1']."', ".$row['respuesta1']."],";
+            echo "['".$row['respuesta1']."', ".$row['respuesta2']."],";
           }
       }
       ?>
