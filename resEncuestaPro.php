@@ -9,6 +9,7 @@
         session_start();
         $usuario = $_SESSION['username'];
 ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
 
 <body>
 <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
