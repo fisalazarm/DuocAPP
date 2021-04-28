@@ -165,7 +165,61 @@
            </div>
        </div> 
     </div>
+
+
+    <?php
+$result = $con->query("SELECT * FROM respuesta_encuesta WHERE id_encuestafk='$cod'");
+
+?>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Respuesta1', 'Respuesta2'],
+      <?php
+      if($result->num_rows > 0){
+          while($row = $result->fetch_assoc()){
+            echo "['".$row['respuesta1']."', ".$row['respuesta2']."],";
+          }
+      }
+      ?>
+    ]);
+    
+    var options = {
+        title: 'Resultados de Respuesta',
+        width: 900,
+        height: 500,
+    };
+    
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    
+    chart.draw(data, options);
+}
+</script>
+</head>
+<body>
+    <!-- Display the pie chart -->
+    <div id="piechart"></div>
+
+
+
+
+
+
     </form>
+
    
 </body>
 
