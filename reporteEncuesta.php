@@ -217,7 +217,7 @@ function drawChart() {
     <div id="piechart"></div>
 
  <?php
-$result = $con->query("SELECT * FROM respuesta_encuesta WHERE id_encuestafk='$cod'");
+$result = $con->query("SELECT respuesta1 as re1, COUNT(respuesta1) as conre1 FROM respuesta_encuesta WHERE id_encuestafk='$cod'");
 
 ?>
 
@@ -240,7 +240,7 @@ function drawChart() {
       <?php
       if($result->num_rows > 0){
           while($row = $result->fetch_assoc()){
-            echo "['".$row['respuesta1']."', ".$row['respuesta2']."],";
+            echo "['".$row['re1']."', ".$row['conre1']."],";
           }
       }
       ?>
