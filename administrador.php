@@ -62,7 +62,7 @@ ul{
                 <li><a href="agregarAsignatura.php"> Registrar Asignatura</a></li>
             </ul> 
           </li>
-                    
+        <li><a href="tutorial.php">Tutorial</a></lia>          
         </ul>
       </nav>
     </header>
@@ -75,7 +75,6 @@ error_reporting(E_ALL ^ E_NOTICE);
     echo  "<h1>Bienvenido $usuario al sistema de Administración</h1>";
 
 ?>
-   
 </html> 
 
 
