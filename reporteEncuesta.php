@@ -11,6 +11,14 @@
         $cod=$_POST["codigo_encuesta"];
 
 ?>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/boostrap.css">
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/plotly-latest.min.js"></script>
+    
+
+</head>
+
 <body>
 <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
             <button onclick="history.go(-1);" id="Enviar" style="font-size: 25px">Volver </button>
@@ -18,7 +26,7 @@
         <br>
 
 
-        <form action="reporteEncuesta.php" method="POST" id="form" class="form-md">
+        <form action="reporteEncuesta.php" method="post" id="form" class="form-md">
 
     <div class="form-group col-12 col-lg-6">
                     <label>Encuesta:</label>
@@ -62,6 +70,7 @@
            <div class="col-lg-12">
             <table id="tablaUsuarios" class="table-striped table-bordered" style="width:100%">
                 <thead class="text-center">
+                    <th>Preguntas</th>
                     <th>Respuestas</th>
                     <th>Cantidad </th>
                     <th>Porcentaje %</th> 
@@ -72,81 +81,97 @@
                     $cantidadRes=$_POST["cantidad"];
                                         error_reporting(E_ALL ^ E_NOTICE);
 
-                        $sql ="SELECT 'Respuesta 1 muy desacuerdos' as 'RESPUESTAS',  COUNT(respuesta1) as 'CANTIDAD',
-                        COUNT(respuesta1) *(100/'$cantidadRes') as 'PORCENTAJE' ,id_encuestafk
+                        $sql ="SELECT pregunta1 as 'PREGUNTA', 'Respuesta 1 Muy Desacuerdos' as 'RESPUESTAS',  COUNT(respuesta1) as 'CANTIDAD',
+                        COUNT(respuesta1) *(100 / '$cantidadRes') as 'PORCENTAJE' ,id_encuestafk
                         FROM  respuesta_encuesta re
                         INNER JOIN encuesta en ON re.id_encuestafk = en.codigo_encuesta
                         WHERE id_encuestafk='$cod' AND respuesta1=1
-                        union ALL
-                        SELECT 'Respuesta 1  desacuerdos', COUNT(respuesta1),
-                        COUNT(respuesta1) *100/'$cantidadRes' as 'PORCENTAJE',id_encuestafk
-                        FROM  respuesta_encuesta
+                        UNION ALL
+                        SELECT pregunta1 as 'PREGUNTA', 'Respuesta 1 Desacuerdos' as 'RESPUESTAS',  COUNT(respuesta1) as 'CANTIDAD',
+                        COUNT(respuesta1) *(100 / '$cantidadRes') as 'PORCENTAJE' ,id_encuestafk
+                        FROM  respuesta_encuesta re
+                        INNER JOIN encuesta en ON re.id_encuestafk = en.codigo_encuesta
                         WHERE id_encuestafk='$cod' AND respuesta1=2
-                        union ALL
-                        SELECT 'Respuesta 1 Neutro', COUNT(respuesta1),
-                        COUNT(respuesta1) *100/'$cantidadRes' as 'PORCENTAJE',id_encuestafk
-                        FROM  respuesta_encuesta
+                        UNION ALL
+                        SELECT pregunta1 as 'PREGUNTA', 'Respuesta 1 Neutro'as 'RESPUESTAS', COUNT(respuesta1) as 'CANTIDAD' ,
+                        COUNT(respuesta1) *(100 / '$cantidadRes') as 'PORCENTAJE' ,id_encuestafk
+                        FROM  respuesta_encuesta re
+                        INNER JOIN encuesta en ON re.id_encuestafk = en.codigo_encuesta
                         WHERE id_encuestafk='$cod' AND respuesta1=3
-                        union ALL
-                        SELECT 'Respuesta 1 Acuerdos', COUNT(respuesta1),
-                        COUNT(respuesta1) *100/'$cantidadRes' as 'PORCENTAJE',id_encuestafk
-                        FROM  respuesta_encuesta
+                        UNION ALL
+                        SELECT pregunta1 as 'PREGUNTA', 'Respuesta 1 Acuerdos'as 'RESPUESTAS', COUNT(respuesta1) as 'CANTIDAD' ,
+                        COUNT(respuesta1) *(100 / '$cantidadRes') as 'PORCENTAJE' ,id_encuestafk
+                        FROM  respuesta_encuesta re
+                        INNER JOIN encuesta en ON re.id_encuestafk = en.codigo_encuesta
                         WHERE id_encuestafk='$cod' AND respuesta1=4
-                        union ALL
-                        SELECT 'Respuesta 1 muy Acuerdos', COUNT(respuesta1),
-                        COUNT(respuesta1) *100/'$cantidadRes' as 'PORCENTAJE',id_encuestafk
-                        FROM  respuesta_encuesta
-                        WHERE id_encuestafk='$cod' AND respuesta1=5/*respuesta1 fin*/
-                        union ALL
-                        SELECT 'Respuesta 2 Neutro', COUNT(respuesta2),
-                        COUNT(respuesta2) *100/'$cantidadRes'as 'PORCENTAJE',id_encuestafk
-                        FROM  respuesta_encuesta
+                        UNION ALL
+                        SELECT pregunta1 as 'PREGUNTA', 'Respuesta 1 Muy Acuerdos'as 'RESPUESTAS', COUNT(respuesta1) as 'CANTIDAD' ,
+                        COUNT(respuesta1) *(100 / '$cantidadRes') as 'PORCENTAJE' ,id_encuestafk
+                        FROM  respuesta_encuesta re
+                        INNER JOIN encuesta en ON re.id_encuestafk = en.codigo_encuesta
+                        WHERE id_encuestafk='$cod' AND respuesta1=5
+                        UNION ALL
+                        SELECT pregunta2 as 'PREGUNTA', 'Respuesta 2 Muy Desacuerdos' as 'RESPUESTAS',  COUNT(respuesta1) as 'CANTIDAD',
+                        COUNT(respuesta1) *(100 / '$cantidadRes') as 'PORCENTAJE' ,id_encuestafk
+                        FROM  respuesta_encuesta re
+                        INNER JOIN encuesta en ON re.id_encuestafk = en.codigo_encuesta
                         WHERE id_encuestafk='$cod' AND respuesta2=1
-                        union ALL
-                        SELECT 'Respuesta 2 Acuerdos', COUNT(respuesta2),
-                        COUNT(respuesta2) *100/'$cantidadRes'as 'PORCENTAJE',id_encuestafk
-                        FROM  respuesta_encuesta
+                        UNION ALL
+                        SELECT pregunta2 as 'PREGUNTA', 'Respuesta 2 Desacuerdos' as 'RESPUESTAS',  COUNT(respuesta1) as 'CANTIDAD',
+                        COUNT(respuesta1) *(100 / '$cantidadRes') as 'PORCENTAJE' ,id_encuestafk
+                        FROM  respuesta_encuesta re
+                        INNER JOIN encuesta en ON re.id_encuestafk = en.codigo_encuesta
                         WHERE id_encuestafk='$cod' AND respuesta2=2
-                        union ALL
-                        SELECT 'Respuesta 2 muy Acuerdos', COUNT(respuesta2),
-                        COUNT(respuesta2) *100/'$cantidadRes'as 'PORCENTAJE',id_encuestafk
-                        FROM  respuesta_encuesta
+                        UNION ALL
+                        SELECT pregunta2 as 'PREGUNTA', 'Respuesta 2 Neutros' as 'RESPUESTAS',  COUNT(respuesta1) as 'CANTIDAD',
+                        COUNT(respuesta1) *(100 / '$cantidadRes') as 'PORCENTAJE' ,id_encuestafk
+                        FROM  respuesta_encuesta re
+                        INNER JOIN encuesta en ON re.id_encuestafk = en.codigo_encuesta
                         WHERE id_encuestafk='$cod' AND respuesta2=3
-                        union ALL
-                        SELECT 'Respuesta 2 muy Acuerdos', COUNT(respuesta2),
-                        COUNT(respuesta2) *100/'$cantidadRes'as 'PORCENTAJE',id_encuestafk
-                        FROM  respuesta_encuesta
+                        UNION ALL
+                        SELECT pregunta2 as 'PREGUNTA', 'Respuesta 2 Acuerdos' as 'RESPUESTAS',  COUNT(respuesta1) as 'CANTIDAD',
+                        COUNT(respuesta1) *(100 / '$cantidadRes') as 'PORCENTAJE' ,id_encuestafk
+                        FROM  respuesta_encuesta re
+                        INNER JOIN encuesta en ON re.id_encuestafk = en.codigo_encuesta
                         WHERE id_encuestafk='$cod' AND respuesta2=4
-                        union ALL
-                        SELECT 'Respuesta 2 muy Acuerdos', COUNT(respuesta2),
-                        COUNT(respuesta2) *100/'$cantidadRes'as 'PORCENTAJE',id_encuestafk
-                        FROM  respuesta_encuesta
-                        WHERE id_encuestafk='$cod' AND respuesta2=5/*respuesta1 fin*//*respuesta2 fin*/
-                        union ALL
-                        SELECT 'Respuesta 3 Muy Descuerdos', COUNT(respuesta3),
-                        COUNT(respuesta3) *100/'$cantidadRes'as 'PORCENTAJE',id_encuestafk
-                        FROM  respuesta_encuesta
+                        UNION ALL
+                        SELECT pregunta2 as 'PREGUNTA', 'Respuesta 2 Muy Acuerdos' as 'RESPUESTAS',  COUNT(respuesta1) as 'CANTIDAD',
+                        COUNT(respuesta1) *(100 / '$cantidadRes') as 'PORCENTAJE' ,id_encuestafk
+                        FROM  respuesta_encuesta re
+                        INNER JOIN encuesta en ON re.id_encuestafk = en.codigo_encuesta
+                        WHERE id_encuestafk='$cod' AND respuesta2=5
+                        UNION ALL
+                        SELECT pregunta3 as 'PREGUNTA', 'Respuesta 2 Muy Desacuerdos' as 'RESPUESTAS',  COUNT(respuesta1) as 'CANTIDAD',
+                        COUNT(respuesta1) *(100 / '$cantidadRes') as 'PORCENTAJE' ,id_encuestafk
+                        FROM  respuesta_encuesta re
+                        INNER JOIN encuesta en ON re.id_encuestafk = en.codigo_encuesta
                         WHERE id_encuestafk='$cod' AND respuesta3=1
-                        union ALL
-                        SELECT 'Respuesta 3 Desacuerdos', COUNT(respuesta3),
-                        COUNT(respuesta3) *100/'$cantidadRes'as 'PORCENTAJE',id_encuestafk
-                        FROM  respuesta_encuesta
+                        UNION ALL
+                        SELECT pregunta3 as 'PREGUNTA', 'Respuesta 2 Desacuerdos' as 'RESPUESTAS',  COUNT(respuesta1) as 'CANTIDAD',
+                        COUNT(respuesta1) *(100 / '$cantidadRes') as 'PORCENTAJE' ,id_encuestafk
+                        FROM  respuesta_encuesta re
+                        INNER JOIN encuesta en ON re.id_encuestafk = en.codigo_encuesta
                         WHERE id_encuestafk='$cod' AND respuesta3=2
-                        union ALL
-                        SELECT 'Respuesta 3 Neutro', COUNT(respuesta3),
-                        COUNT(respuesta3) *100/'$cantidadRes'as 'PORCENTAJE',id_encuestafk
-                        FROM  respuesta_encuesta
+                        UNION ALL
+                        SELECT pregunta3 as 'PREGUNTA', 'Respuesta 2 Neutros' as 'RESPUESTAS',  COUNT(respuesta1) as 'CANTIDAD',
+                        COUNT(respuesta1) *(100 / '$cantidadRes') as 'PORCENTAJE' ,id_encuestafk
+                        FROM  respuesta_encuesta re
+                        INNER JOIN encuesta en ON re.id_encuestafk = en.codigo_encuesta
                         WHERE id_encuestafk='$cod' AND respuesta3=3
-                        union ALL
-                        SELECT 'Respuesta 3  Acuerdos', COUNT(respuesta3),
-                        COUNT(respuesta3) *100/'$cantidadRes'as 'PORCENTAJE',id_encuestafk
-                        FROM  respuesta_encuesta
+                        UNION ALL
+                        SELECT pregunta3 as 'PREGUNTA', 'Respuesta 2 Acuerdos' as 'RESPUESTAS',  COUNT(respuesta1) as 'CANTIDAD',
+                        COUNT(respuesta1) *(100 / '$cantidadRes') as 'PORCENTAJE' ,id_encuestafk
+                        FROM  respuesta_encuesta re
+                        INNER JOIN encuesta en ON re.id_encuestafk = en.codigo_encuesta
                         WHERE id_encuestafk='$cod' AND respuesta3=4
-                        union ALL
-                        SELECT 'Respuesta 3 muy Acuerdos', COUNT(respuesta3),
-                        COUNT(respuesta3) *100/'$cantidadRes'as 'PORCENTAJE',id_encuestafk
-                        FROM  respuesta_encuesta
-                        WHERE id_encuestafk = '$cod' AND respuesta3=5/*respuesta3 fin*/
+                        UNION ALL
+                        SELECT pregunta3 as 'PREGUNTA', 'Respuesta 2 Muy Acuerdos' as 'RESPUESTAS',  COUNT(respuesta1) as 'CANTIDAD',
+                        COUNT(respuesta1) *(100 / '$cantidadRes') as 'PORCENTAJE' ,id_encuestafk
+                        FROM  respuesta_encuesta re
+                        INNER JOIN encuesta en ON re.id_encuestafk = en.codigo_encuesta
+                        WHERE id_encuestafk='$cod' AND respuesta3=5
+                        
+                        
                             ";
                         $result = mysqli_query($con,$sql);
                         while($usuario=mysqli_fetch_array($result))
@@ -154,6 +179,7 @@
                         
                     ?>
                     <tr>
+                        <td><?php echo $usuario['PREGUNTA']?></td>
                         <td><?php echo $usuario['RESPUESTAS']?></td>
                         <td><?php echo $usuario['CANTIDAD']?></td>
                         <td><?php echo $usuario['PORCENTAJE']?></td>
@@ -168,102 +194,64 @@
            </div>
        </div> 
     </div>
-
-
-    <?php
-$result = $con->query("SELECT * FROM respuesta_encuesta WHERE id_encuestafk='$cod'");
-
-?>
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
-
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
-function drawChart() {
-
-    var data = google.visualization.arrayToDataTable([
-      ['Respuesta1', 'Respuesta2'],
-      <?php
-      if($result->num_rows > 0){
-          while($row = $result->fetch_assoc()){
-            echo "['".$row['respuesta1']."', ".$row['respuesta2']."],";
-          }
-      }
-      ?>
-    ]);
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-primary">
+                    <div class="panel panel-heading">
+                        Pregunta1
+                    </div>
+                    <div class="panel panel-body">
+                        <div class="row">                            
+                            <div class="col-sm-6-">
+                                <div id="cargaBarras"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     
-    var options = {
-        title: 'Resultados de Respuesta',
-        width: 900,
-        height: 500,
-    };
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-primary">
+                    <div class="panel panel-heading">
+                        Pregunta2
+                    </div>
+                    <div class="panel panel-body">
+                        <div class="row">                            
+                            <div class="col-sm-6-">
+                                <div id="cargaBarras2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    </div>
     
-    chart.draw(data, options);
-}
-</script>
-</head>
-<body>
-    <!-- Display the pie chart -->
-    <div id="piechart"></div>
-
- <?php
-$result = $con->query("SELECT respuesta1 as re1, COUNT(respuesta1) as conre1 FROM respuesta_encuesta WHERE id_encuestafk='$cod'");
-
-?>
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
-
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
-function drawChart() {
-
-    var data = google.visualization.arrayToDataTable([
-      ['Respuesta1', 'Respuesta2'],
-      <?php
-      if($result->num_rows > 0){
-          while($row = $result->fetch_assoc()){
-            echo "['".$row['re1']."', ".$row['conre1']."],";
-          }
-      }
-      ?>
-    ]);
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-primary">
+                    <div class="panel panel-heading">
+                        Pregunta3
+                    </div>
+                    <div class="panel panel-body">
+                        <div class="row">                            
+                            <div class="col-sm-6-">
+                                <div id="cargaBarras3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     
-    var options = {
-        title: 'Resultados de Respuesta',
-        width: 900,
-        height: 500,
-    };
-    
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-    
-    chart.draw(data, options);
-}
-</script>
-</head>
-<body>
-    <!-- Display the pie chart -->
-    <div id="piechart"></div>
-
-
-
+    </div>
 
     </form>
 
@@ -271,3 +259,22 @@ function drawChart() {
 </body>
 
 </html> 
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#cargaBarras').load('barra.php');
+
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#cargaBarras2').load('barra2.php');
+
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#cargaBarras3').load('barra3.php');
+
+    });
+</script>
