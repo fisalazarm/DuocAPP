@@ -1,12 +1,13 @@
 <?php
     include('conexion.php');
+   
     error_reporting(E_ALL ^ E_NOTICE);
     ?>
     <?php
 
-    $codigo = $_POST['codigo_encuesta'];
+    $codigo = $_POST['envio'];
 
-    $sql="SELECT respuesta1,  respuesta1 from respuesta_encuesta WHERE id_encuestafk = 142962";
+    $sql="SELECT respuesta1,  respuesta1 from respuesta_encuesta WHERE id_encuestafk = '$codigo'";
     $res=mysqli_query($con,$sql);
     $valoresY=array();
     $valoresX=array();
@@ -21,7 +22,7 @@
 
     
 ?>
-
+<input type="text" value="<?php echo $codigo ?>">
 <div id="graficoBarra"></div>
 
 <script type="text/javascript">

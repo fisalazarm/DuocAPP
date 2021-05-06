@@ -6,7 +6,7 @@
 
     $codigo = $_POST['codigo_encuesta'];
 
-    $sql="SELECT respuesta3,  respuesta3 from respuesta_encuesta WHERE id_encuestafk =142962";
+    $sql="SELECT respuesta3,  respuesta3 from respuesta_encuesta WHERE id_encuestafk ='$codigo'";
     $res=mysqli_query($con,$sql);
     $valoresY=array();
     $valoresX=array();
@@ -22,7 +22,7 @@
     
 ?>
 
-<div id="graficoBarra"></div>
+<div id="graficoBarra3"></div>
 
 <script type="text/javascript">
     function crearCadenaBarras(json){
@@ -47,5 +47,5 @@ var data = [
   }
 ];
 
-Plotly.newPlot('graficoBarra', data);
+Plotly.newPlot('graficoBarra3', data);
 </script>

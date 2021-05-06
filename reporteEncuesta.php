@@ -44,6 +44,7 @@
                                         }                                    
                             ?>
                     </select>
+
                     <input type="submit" value="Aceptar">
                     
                     
@@ -51,7 +52,7 @@
  
 
  <?php
-                        $consulta="SELECT COUNT(id_encuestafk) AS cant 
+                        $consulta="SELECT COUNT(id_encuestafk) AS cant,id_encuestafk AS COD
                                     FROM respuesta_encuesta 
                                     WHERE id_encuestafk='$cod'";
                          $consu = mysqli_query($con,$consulta);
@@ -62,6 +63,7 @@
 
                     <label >Cantidad Respuestas de Alumnos</label>
                     <input type="text" name="cantidad" value="<?php echo $cons['cant']?>">
+                    <input type="text" name="envio" value="<?php echo $cons['COD']?>">
                     </div>
                     <?php } ?>
 
