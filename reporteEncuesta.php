@@ -206,11 +206,13 @@
                 <div class="panel panel-primary">
                     <div class="panel panel-heading">
                         Gráficos
-                        <button><a href="graficoBarra.php ">graficoBarra 1</a></button>
-                        <button><a href="graficoBarra2.php ">graficoBarra 2</a></button>
-                        <button><a href="graficoBarra3.php ">graficoBarra 3</a></button>
+                        <button><a href="graficoBarra.php"> grafico Respuesta 1</a></button>
+                        <button><a href="graficoBarra2.php">grafico Respuesta 2</a></button>
+                        <button><a href="graficoBarra3.php">grafico Respuesta 3</a></button>
+                        
                     </div>
                     <div class="panel panel-body">
+                    Ejemplo
                         <div class="row">                            
                             <div class="col-sm-6-">
                                 <div id="cargaBarras3">
