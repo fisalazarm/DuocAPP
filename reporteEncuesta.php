@@ -20,6 +20,8 @@
 </head>
 
 <body>
+
+
 <div class="container-md d-flex justify-content-center" style="background-color:white" text-center py-5>
             <button onclick="history.go(-1);" id="Enviar" style="font-size: 25px">Volver </button>
         </div>
@@ -196,56 +198,23 @@
            </div>
        </div> 
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="panel panel-primary">
-                    <div class="panel panel-heading">
-                        Pregunta1
-                    </div>
-                    <div class="panel panel-body">
-                        <div class="row">                            
-                            <div class="col-sm-6-">
-                                <div id="cargaBarras"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="panel panel-primary">
-                    <div class="panel panel-heading">
-                        Pregunta2
-                    </div>
-                    <div class="panel panel-body">
-                        <div class="row">                            
-                            <div class="col-sm-6-">
-                                <div id="cargaBarras2"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-    </div>
     
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <div class="panel panel-primary">
                     <div class="panel panel-heading">
-                        Pregunta3
+                        Gráficos
+                        <button><a href="graficoBarra.php ">graficoBarra 1</a></button>
+                        <button><a href="graficoBarra2.php ">graficoBarra 1</a></button>
+                        <button><a href="graficoBarra3.php ">graficoBarra 1</a></button>
                     </div>
                     <div class="panel panel-body">
                         <div class="row">                            
                             <div class="col-sm-6-">
-                                <div id="cargaBarras3"></div>
+                                <div id="cargaBarras3">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -262,21 +231,10 @@
 
 </html> 
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#cargaBarras').load('barra.php');
 
-    });
-</script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#cargaBarras2').load('barra2.php');
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#cargaBarras3').load('barra3.php');
 
-    });
-</script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#cargaBarras3').load('barra3.php');
-
-    });
-</script>
+        });
+    </script>
