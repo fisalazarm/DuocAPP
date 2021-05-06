@@ -207,8 +207,8 @@
                     <div class="panel panel-heading">
                         Gráficos
                         <button><a href="graficoBarra.php ">graficoBarra 1</a></button>
-                        <button><a href="graficoBarra2.php ">graficoBarra 1</a></button>
-                        <button><a href="graficoBarra3.php ">graficoBarra 1</a></button>
+                        <button><a href="graficoBarra2.php ">graficoBarra 2</a></button>
+                        <button><a href="graficoBarra3.php ">graficoBarra 3</a></button>
                     </div>
                     <div class="panel panel-body">
                         <div class="row">                            
