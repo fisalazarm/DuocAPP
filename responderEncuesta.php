@@ -156,6 +156,10 @@
                     </script>
             <button id="Enviar" type="submit" onclick="aviso()" class="btn btn-lg" name="Guardar">Enviar Respuesta</button>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>git 
         <?php
                 $codigen=$_POST["coden"];
                 
