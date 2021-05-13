@@ -3,6 +3,7 @@
 <?php $currentPage = 'Administracion'; ?>
 <?php include('head.php'); ?>
 <?php include('nav-bar.php'); ?>
+<?php session_start(); ?>
 
 <body>
 <style>
@@ -70,7 +71,7 @@ ul{
 
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
-    session_start();
+    
     $usuario = $_SESSION['username'];
     echo  "<h1>Bienvenido $usuario al sistema de Administración</h1>";
 
